@@ -1,3 +1,20 @@
 .main-search-bar .MuiInput-underline:after {
   border-bottom: none !important;
 }
+
+/* Browser Css */
+.my-task-tab-panel .MuiBox-root {
+  padding: 10px 0;
+}
+
+.make-an-offer-btn {
+  background: #188dc7;
+  border: 2px solid #188dc7;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 16px;
+  padding: 4px 20px;
+  transition: .5s;
+}
+
+/* Browser Css */

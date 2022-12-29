@@ -4,6 +4,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Signup from "./Components/Signup/Signup";
 import PostATasker from "./Components/Common Components/Postatasker/PostATasker";
+import Howitwork from "./Components/Common Components/Howitworks/Howitwork";
+import Help from "./Components/Common Components/Help/Help";
+import Contactus from "./Components/Common Components/Contactus/Contactus";
 import './App.css';
 import './Responsive.css';
 
@@ -30,13 +33,13 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/post-a-task" element={< PostATasker />} />
-        {/*<Route path="/profile" element={<Profile />} />
-        <Route path="/contact-us" element={<Contactus />} />
-        <Route path="/otp-verification" element={<OtpVerification />} />
-        <Route path="/help" element={< Help />} />
-        <Route path="/category/:name" element={< CategoriesPost />} />
+        <Route path="/post-a-task" element={<PostATasker />} />
         <Route path="/how-it-works" element={<Howitwork />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/contact-us" element={<Contactus />} />
+        {/*<Route path="/profile" element={<Profile />} />
+        <Route path="/otp-verification" element={<OtpVerification />} />
+        <Route path="/category/:name" element={< CategoriesPost />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/browse-requests" element={<BrowseRequests />} />
         <Route path="/my-requests" element={<MyRequest />} />
