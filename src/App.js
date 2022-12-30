@@ -7,6 +7,8 @@ import Help from "./Components/Common Components/Help/Help";
 import Contactus from "./Components/Common Components/Contactus/Contactus";
 import SignupLayout from './Components/Signup/SignupLayout';
 import LoginLayout from './Components/Login/LoginLayout';
+import MyProfile from "./Components/Common Components/MyProfile/MyProfile";
+import Notification from "./Components/Common Components/Notification/Notification";
 import './App.css';
 import './Responsive.css';
 
@@ -37,16 +39,14 @@ const App = () => {
         <Route path="/how-it-works" element={<Howitwork />} />
         <Route path="/help" element={<Help />} />
         <Route path="/contact-us" element={<Contactus />} />
-        {/*<Route path="/profile" element={<Profile />} />
-        <Route path="/otp-verification" element={<OtpVerification />} />
-        <Route path="/category/:name" element={< CategoriesPost />} />
+        <Route path="/profile" element={<MyProfile />} />
         <Route path="/notification" element={<Notification />} />
+        {/*<Route path="/category/:name" element={< CategoriesPost />} />
         <Route path="/browse-requests" element={<BrowseRequests />} />
         <Route path="/my-requests" element={<MyRequest />} />
         <Route path="/my-proposals" element={<MyProposal />} />
         <Route path="/my-tasks" element={<MyTasks />} />
         <Route path="/past-tasks" element={<PastTasks />} />
-        <Route path="/forget-password" element={<ForgetPassword />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/search-posts" element={<BrowseRequests />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
