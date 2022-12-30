@@ -37,6 +37,7 @@ const useStyles = makeStyles(() => ({
         alignItems: "center",
         borderRadius: "10px",
         width: "48%",
+        cursor: 'pointer',
         backgroundColor: "#edecec",
     },
 
@@ -56,6 +57,7 @@ const defaultState = {
 const Login = () => {
     const classes = useStyles();
     const [state, setState] = useState(defaultState)
+    const [phone, setPhone] = useState(false)
     let navigate = useNavigate();
 
     const loginApproved = (event) => {
@@ -66,6 +68,14 @@ const Login = () => {
                 [name]: value,
             }
         })
+    }
+
+    const scrollToTop = () => {
+        document.documentElement.scrollTo({
+            top: 200,
+            left: 0,
+            behavior: "instant",
+        });
     }
 
     const handleLogin = () => {
@@ -97,61 +107,78 @@ const Login = () => {
                             <img src={Images.loginAnnimation} className="img-fluid" alt="Phone image" />
                         </div>
                         <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                            <div>
-                                <div className="form-outline">
-                                    <TextField
-                                        name="email"
-                                        fullWidth
-                                        variant='outlined'
-                                        size='large'
-                                        label={'Email'}
-                                        onChange={loginApproved}
-                                    />
-                                </div>
-                                <div className="form-outline mt-3 mb-3">
-                                    <TextField
-                                        name="password"
-                                        fullWidth
-                                        type="password"
-                                        variant='outlined'
-                                        size='large'
-                                        onChange={loginApproved}
-                                        label={'Password'}
-                                    />
-                                </div>
-                                <div className="d-flex justify-content-around align-items-center mb-2">
-                                    <div className="form-check">
-                                        <Checkbox className="m-0 p-0" />
-                                        <label className="form-check-label" for="form1Example3"> Remember me </label>
+                            {phone
+                                ?
+                                <>
+                                    <div className="form-outline">
+                                        <TextField
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'Enter your phone number'}
+                                        />
                                     </div>
-                                    <NavLink to="/forget-password" >Forgot password?</NavLink>
-                                </div>
-                                <div className="d-flex justify-content-center">
-                                    <button className={`btn btn-primary btn-lg btn-block ${classes.LoginBtn}`} onClick={handleLogin} disabled={state.email != '' && state.password != '' ? false : true}>Log in <ArrowRightAltIcon /></button>
-                                </div>
-                                <div className="divider d-flex align-items-center my-3 justify-content-center">
-                                    <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                                </div>
-                                <div className={`${classes.LoginPlatforms} d-flex justify-content-between`}>
-                                    <div className={`d-flex justify-content-center ${classes.LoginFields}`}>
-                                        <div className="media-options">
-                                            <a href="#">
-                                                <FacebookIcon />
-                                                <span> Login with Facebook</span>
-                                            </a>
+                                    <div className="d-flex justify-content-center mt-3">
+                                        <NavLink to="otp-verification" className={`btn btn-primary btn-lg btn-block ${classes.LoginBtn}`}>Verify <ArrowRightAltIcon /></NavLink >
+                                    </div>
+                                </>
+                                :
+                                <div>
+                                    <div className="form-outline">
+                                        <TextField
+                                            name="email"
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'Email'}
+                                            onChange={loginApproved}
+                                        />
+                                    </div>
+                                    <div className="form-outline mt-3 mb-3">
+                                        <TextField
+                                            name="password"
+                                            fullWidth
+                                            type="password"
+                                            variant='outlined'
+                                            size='large'
+                                            onChange={loginApproved}
+                                            label={'Password'}
+                                        />
+                                    </div>
+                                    <div className="d-flex justify-content-around align-items-center mb-2">
+                                        <div className="form-check">
+                                            <Checkbox className="m-0 p-0" />
+                                            <label className="form-check-label" for="form1Example3"> Remember me </label>
+                                        </div>
+                                        <NavLink to="/forget-password" >Forgot password?</NavLink>
+                                    </div>
+                                    <div className="d-flex justify-content-center">
+                                        <button className={`btn btn-primary btn-lg btn-block ${classes.LoginBtn}`} onClick={handleLogin} disabled={state.email != '' && state.password != '' ? false : true}>Log in <ArrowRightAltIcon /></button>
+                                    </div>
+                                    <div className="divider d-flex align-items-center my-3 justify-content-center">
+                                        <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+                                    </div>
+                                    <div className={`${classes.LoginPlatforms} d-flex justify-content-between`}>
+                                        <div className={`d-flex justify-content-center ${classes.LoginFields}`} onClick={() => { setPhone(true); scrollToTop(); }}>
+                                            <div className="media-options">
+                                                <a>
+                                                    <FacebookIcon />
+                                                    <span> Login with Facebook</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className={`d-flex justify-content-center ${classes.LoginFields}`} onClick={() => { setPhone(true); scrollToTop(); }}>
+                                            <div className="media-options">
+                                                <a className={classes.googleImage}>
+                                                    <img src={Images.google} />
+                                                    <span> Login with Google</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className={`d-flex justify-content-center ${classes.LoginFields}`}>
-                                        <div className="media-options">
-                                            <a href="#" className={classes.googleImage}>
-                                                <img src={Images.google} />
-                                                <span> Login with Google</span>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <NavLink className="d-flex justify-content-center text-decoration-underline mt-2" to="/signup">Don't have an account ?... </NavLink>
                                 </div>
-                                <NavLink className="d-flex justify-content-center text-decoration-underline mt-2" to="/signup">Don't have an account ?... </NavLink>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>

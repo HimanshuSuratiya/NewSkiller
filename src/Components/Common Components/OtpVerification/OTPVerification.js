@@ -6,7 +6,7 @@ import OtpInput from "react-otp-input";
 import { makeStyles } from "@material-ui/core/styles";
 import Images from '../../../Images/Image';
 import Footer from "../Footer/Footer";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     otpButtons: {
@@ -27,6 +27,8 @@ const useStyles = makeStyles(() => ({
 
 const OTPVerification = () => {
     const classes = useStyles();
+    const { pathname } = useLocation();
+    const pathArray = pathname.split("/");
 
     return (
         <>
@@ -82,10 +84,10 @@ const OTPVerification = () => {
                                 </div>
                                 <div className="d-flex justify-content-center">
                                     <div className="w-50 d-flex justify-content-evenly">
-                                        <NavLink to="/signup/register-type">
+                                        <NavLink to={`/${pathArray[1]}/register-type`}>
                                             <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`}>Skip</button>
                                         </NavLink>
-                                        <NavLink to="/signup/register-type">
+                                        <NavLink to={`/${pathArray[1]}/register-type`}>
                                             <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`}>Verify</button>
                                         </NavLink>
                                     </div>

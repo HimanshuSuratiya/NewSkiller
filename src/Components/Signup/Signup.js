@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Images from "../../Images/Image";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { TextField, TextareaAutosize } from '@mui/material';
@@ -35,6 +35,7 @@ const useStyles = makeStyles(() => ({
         alignItems: "center",
         borderRadius: "10px",
         width: "48%",
+        cursor: 'pointer',
         backgroundColor: "#edecec",
     },
 
@@ -49,6 +50,16 @@ const useStyles = makeStyles(() => ({
 
 const Signup = () => {
     const classes = useStyles();
+    const [phone, setPhone] = useState(false)
+
+    const scrollToTop = () => {
+        document.documentElement.scrollTo({
+            top: 200,
+            left: 0,
+            behavior: "instant",
+        });
+    }
+
     return (
         <>
             <Menu />
@@ -60,106 +71,123 @@ const Signup = () => {
                             <img src={Images.SignUp} className="img-fluid" alt="Phone image" />
                         </div>
                         <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                            <form>
-                                <div className="form-outline">
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        size='large'
-                                        label={'First Name'}
-                                    />
-                                </div>
-                                <div className="form-outline mt-3">
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        size='large'
-                                        label={'Last Name'}
-                                    />
-                                </div>
-                                <div className="form-outline mt-3">
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        size='large'
-                                        label={'Email'}
-                                    />
-                                </div>
-                                <div className="form-outline mt-3">
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        size='large'
-                                        label={'Password'}
-                                    />
-                                </div>
-                                <div className="form-outline mt-3">
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        size='large'
-                                        label={'Confirm Password'}
-                                    />
-                                </div>
-                                <div className="form-outline mt-3">
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        size='large'
-                                        label={'Location'}
-                                    />
-                                </div>
-                                <div className="form-outline mt-3">
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        size='large'
-                                        label={'Phone Number'}
-                                    />
-                                </div>
-                                <div className="form-outline mt-3">
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        size='large'
-                                        label={'Country'}
-                                    />
-                                </div>
-                                <div className="form-group mt-3">
-                                    <TextareaAutosize
-                                        className='p-2'
-                                        aria-label="minimum height"
-                                        minRows={2}
-                                        style={{ width: '100%' }}
-                                        placeholder="Enter your address"
-                                    />
-                                </div>
-                                <div className="d-flex justify-content-center mt-2">
-                                    <NavLink to="otp-verification" className={`btn btn-primary btn-lg btn-block ${classes.SignupBtn}`}>Sign up <ArrowRightAltIcon /></NavLink >
-                                </div>
-                                <div className="divider d-flex align-items-center my-3 justify-content-center">
-                                    <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                                </div>
-                                <div className={`${classes.LoginPlatforms} d-flex justify-content-between`}>
-                                    <div className={`d-flex justify-content-center ${classes.LoginFields}`}>
-                                        <div className="media-options">
-                                            <a href="#">
-                                                <FacebookIcon />
-                                                <span> Login with Facebook</span>
-                                            </a>
+                            {phone
+                                ?
+                                <>
+                                    <div className="form-outline">
+                                        <TextField
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'Enter your phone number'}
+                                        />
+                                    </div>
+                                    <div className="d-flex justify-content-center mt-3">
+                                        <NavLink to="otp-verification" className={`btn btn-primary btn-lg btn-block ${classes.SignupBtn}`}>Verify <ArrowRightAltIcon /></NavLink >
+                                    </div>
+                                </>
+                                :
+                                <form>
+                                    <div className="form-outline">
+                                        <TextField
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'First Name'}
+                                        />
+                                    </div>
+                                    <div className="form-outline mt-3">
+                                        <TextField
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'Last Name'}
+                                        />
+                                    </div>
+                                    <div className="form-outline mt-3">
+                                        <TextField
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'Email'}
+                                        />
+                                    </div>
+                                    <div className="form-outline mt-3">
+                                        <TextField
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'Password'}
+                                        />
+                                    </div>
+                                    <div className="form-outline mt-3">
+                                        <TextField
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'Confirm Password'}
+                                        />
+                                    </div>
+                                    <div className="form-outline mt-3">
+                                        <TextField
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'Location'}
+                                        />
+                                    </div>
+                                    <div className="form-outline mt-3">
+                                        <TextField
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'Phone Number'}
+                                        />
+                                    </div>
+                                    <div className="form-outline mt-3">
+                                        <TextField
+                                            fullWidth
+                                            variant='outlined'
+                                            size='large'
+                                            label={'Country'}
+                                        />
+                                    </div>
+                                    <div className="form-group mt-3">
+                                        <TextareaAutosize
+                                            className='p-2'
+                                            aria-label="minimum height"
+                                            minRows={2}
+                                            style={{ width: '100%' }}
+                                            placeholder="Enter your address"
+                                        />
+                                    </div>
+                                    <div className="d-flex justify-content-center mt-2">
+                                        <NavLink to="otp-verification" className={`btn btn-primary btn-lg btn-block ${classes.SignupBtn}`}>Sign up <ArrowRightAltIcon /></NavLink >
+                                    </div>
+                                    <div className="divider d-flex align-items-center my-3 justify-content-center">
+                                        <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+                                    </div>
+                                    <div className={`${classes.LoginPlatforms} d-flex justify-content-between`}>
+                                        <div className={`d-flex justify-content-center ${classes.LoginFields}`} onClick={() => { setPhone(true); scrollToTop(); }}>
+                                            <div className="media-options">
+                                                <a>
+                                                    <FacebookIcon />
+                                                    <span> Login with Facebook</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div className={`d-flex justify-content-center ${classes.LoginFields}`} onClick={() => { setPhone(true); scrollToTop(); }}>
+                                            <div className="media-options">
+                                                <a className={classes.googleImage}>
+                                                    <img src={Images.google} />
+                                                    <span> Login with Google</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className={`d-flex justify-content-center ${classes.LoginFields}`}>
-                                        <div className="media-options">
-                                            <a href="#" className={classes.googleImage}>
-                                                <img src={Images.google} />
-                                                <span> Login with Google</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <NavLink className="d-flex justify-content-center text-decoration-underline mt-2" to="/login">Already have an account ?... </NavLink>
-                            </form>
+                                    <NavLink className="d-flex justify-content-center text-decoration-underline mt-2" to="/login">Already have an account ?... </NavLink>
+                                </form>
+                            }
                         </div>
                     </div>
                 </div>

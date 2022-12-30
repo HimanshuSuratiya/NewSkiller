@@ -2,14 +2,14 @@ import React from 'react'
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import OTPVerification from "../Common Components/OtpVerification/OTPVerification";
 import RegisterType from "../Common Components/RegisterType/RegisterType";
-import Signup from './Signup';
+import Login from "./Login";
 
-const SignupLayout = () => {
+const LoginLayout = () => {
     return (
         <>
             <Outlet />
             <Routes>
-                <Route path="/" element={<Signup />} />
+                <Route path="/" element={<Login />} />
                 <Route path="otp-verification" element={<OTPVerification />} />
                 <Route path="register-type" element={<RegisterType />} />
                 <Route path="*" element={<Navigate to="/" />} />
@@ -18,4 +18,4 @@ const SignupLayout = () => {
     )
 }
 
-export default SignupLayout;
+export default LoginLayout;
