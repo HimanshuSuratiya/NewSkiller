@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import LandingPage from "./Components/LandingPage/LandingPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Components/Login/Login";
-import Signup from "./Components/Signup/Signup";
 import PostATasker from "./Components/Common Components/Postatasker/PostATasker";
 import Howitwork from "./Components/Common Components/Howitworks/Howitwork";
 import Help from "./Components/Common Components/Help/Help";
 import Contactus from "./Components/Common Components/Contactus/Contactus";
+import SignupLayout from './Components/Signup/SignupLayout';
 import './App.css';
 import './Responsive.css';
 
@@ -32,7 +32,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup/*" element={<SignupLayout />} />
         <Route path="/post-a-task" element={<PostATasker />} />
         <Route path="/how-it-works" element={<Howitwork />} />
         <Route path="/help" element={<Help />} />
