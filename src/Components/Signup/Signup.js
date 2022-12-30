@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Images from "../../Images/Image";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { TextField, TextareaAutosize } from '@mui/material';
@@ -7,6 +7,7 @@ import "../../Animation.css";
 import Banner from "../Common Components/Banner/Banner";
 import Footer from "../Common Components/Footer/Footer";
 import { NavLink } from "react-router-dom";
+import FacebookIcon from '@mui/icons-material/Facebook';
 import Menu from "../Common Components/Menu/Menu";
 
 const useStyles = makeStyles(() => ({
@@ -24,11 +25,30 @@ const useStyles = makeStyles(() => ({
             background: '#8fc1e2',
         },
     },
+
+    LoginPlatforms: {
+        height: '50px',
+        width: '100%',
+    },
+
+    LoginFields: {
+        alignItems: "center",
+        borderRadius: "10px",
+        width: "48%",
+        backgroundColor: "#edecec",
+    },
+
+    googleImage: {
+        "& img": {
+            height: "20px",
+            width: "20px",
+        },
+    },
+
 }));
 
 const Signup = () => {
     const classes = useStyles();
-    const [otpScreen, setOtpScreen] = useState(false);
     return (
         <>
             <Menu />
@@ -115,7 +135,28 @@ const Signup = () => {
                                     />
                                 </div>
                                 <div className="d-flex justify-content-center mt-2">
-                                    <a className={`btn btn-primary btn-lg btn-block ${classes.SignupBtn}`} onClick={() => { setOtpScreen(true) }}>Sign up <ArrowRightAltIcon /></a>
+                                    <NavLink to="otp-verification" className={`btn btn-primary btn-lg btn-block ${classes.SignupBtn}`}>Sign up <ArrowRightAltIcon /></NavLink >
+                                </div>
+                                <div className="divider d-flex align-items-center my-3 justify-content-center">
+                                    <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+                                </div>
+                                <div className={`${classes.LoginPlatforms} d-flex justify-content-between`}>
+                                    <div className={`d-flex justify-content-center ${classes.LoginFields}`}>
+                                        <div className="media-options">
+                                            <a href="#">
+                                                <FacebookIcon />
+                                                <span> Login with Facebook</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className={`d-flex justify-content-center ${classes.LoginFields}`}>
+                                        <div className="media-options">
+                                            <a href="#" className={classes.googleImage}>
+                                                <img src={Images.google} />
+                                                <span> Login with Google</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <NavLink className="d-flex justify-content-center text-decoration-underline mt-2" to="/login">Already have an account ?... </NavLink>
                             </form>
