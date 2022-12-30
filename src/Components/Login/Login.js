@@ -150,7 +150,7 @@ const Login = () => {
                                             <Checkbox className="m-0 p-0" />
                                             <label className="form-check-label" for="form1Example3"> Remember me </label>
                                         </div>
-                                        <NavLink to="/forget-password" >Forgot password?</NavLink>
+                                        <NavLink to="/login/forget-password" >Forgot password?</NavLink>
                                     </div>
                                     <div className="d-flex justify-content-center">
                                         <button className={`btn btn-primary btn-lg btn-block ${classes.LoginBtn}`} onClick={handleLogin} disabled={state.email != '' && state.password != '' ? false : true}>Log in <ArrowRightAltIcon /></button>
