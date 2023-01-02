@@ -10,6 +10,7 @@ import LoginLayout from './Components/Login/LoginLayout';
 import MyProfile from "./Components/Common Components/MyProfile/MyProfile";
 import Notification from "./Components/Common Components/Notification/Notification";
 import BrowseRequestLayout from './Components/Common Components/BrowseRequests/BrowseRequestLayout';
+import MyTasksLayout from './Components/Skill Seeker Components/MyTasks/MyTasksLayout';
 import './App.css';
 import './Responsive.css';
 
@@ -43,10 +44,10 @@ const App = () => {
         <Route path="/profile" element={<MyProfile />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/browse-requests/*" element={<BrowseRequestLayout />} />
+        <Route path="/my-tasks/*" element={<MyTasksLayout />} />
         {/*<Route path="/category/:name" element={< CategoriesPost />} />
         <Route path="/my-requests" element={<MyRequest />} />
         <Route path="/my-proposals" element={<MyProposal />} />
-        <Route path="/my-tasks" element={<MyTasks />} />
         <Route path="/past-tasks" element={<PastTasks />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/search-posts" element={<BrowseRequests />} /> */}

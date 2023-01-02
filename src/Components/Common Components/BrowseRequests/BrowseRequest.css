@@ -37,6 +37,7 @@
     height: 585px;
     overflow: auto;
     overflow-x: hidden;
+    font-family: 'Mulish', sans-serif !important;
 }
 
 .left-main-Div::-webkit-scrollbar {

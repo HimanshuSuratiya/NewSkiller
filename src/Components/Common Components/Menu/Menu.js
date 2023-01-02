@@ -329,11 +329,6 @@ const Menu = (props) => {
                                                                                 My Profile
                                                                             </MenuItem>
                                                                         </NavLink>
-                                                                        <NavLink to="/notification">
-                                                                            <MenuItem onClick={handleClose}>
-                                                                                Notification
-                                                                            </MenuItem>
-                                                                        </NavLink>
                                                                         <NavLink to="/my-tasks">
                                                                             <MenuItem onClick={handleClose}>
                                                                                 My Tasks
