@@ -294,7 +294,7 @@ const MyTasksDetail = ({ setCardDetail, Map, cardData }) => {
                             </div>
                             {cardData.status === 'Completed' &&
                                 <div className='d-flex align-items-center post-location-data w-50'>
-                                    <NavLink to="/user-profile">
+                                    <NavLink to="user-profile">
                                         <Avatar src={Images.three} sx={{ width: 45, height: 45 }} />
                                     </NavLink>
                                     <div className='px-1 posted-area'>
@@ -305,7 +305,7 @@ const MyTasksDetail = ({ setCardDetail, Map, cardData }) => {
                             }
                             {cardData.status === 'In Progress' &&
                                 <div className='d-flex align-items-center post-location-data w-50'>
-                                    <NavLink to="/user-profile">
+                                    <NavLink to="user-profile">
                                         <Avatar src={Images.two} sx={{ width: 45, height: 45 }} />
                                     </NavLink>
                                     <div className='px-1 posted-area'>
@@ -433,7 +433,7 @@ const MyTasksDetail = ({ setCardDetail, Map, cardData }) => {
                                         <div className='py-4'>
                                             <div className='p-0 m-0 px-2 d-flex align-items-center justify-content-between'>
                                                 <div className='d-flex'>
-                                                    <NavLink to="/user-profile">
+                                                    <NavLink to="user-profile">
                                                         <Avatar src={item.imgSrc} sx={{ width: 65, height: 65 }} />
                                                     </NavLink>
                                                     <div className='px-4'>
