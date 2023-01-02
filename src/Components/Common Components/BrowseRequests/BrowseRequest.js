@@ -410,7 +410,7 @@ const BrowseRequest = () => {
                                                     <div className='px-2'>
                                                         <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
                                                     </div>
-                                                    <NavLink to="/user-profile">
+                                                    <NavLink to="user-profile">
                                                         <div className='px-2 d-flex align-items-center justify-content-center'>
                                                             <Avatar
                                                                 alt="Remy Sharp"
