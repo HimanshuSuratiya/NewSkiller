@@ -9,6 +9,7 @@ import SignupLayout from './Components/Signup/SignupLayout';
 import LoginLayout from './Components/Login/LoginLayout';
 import MyProfile from "./Components/Common Components/MyProfile/MyProfile";
 import Notification from "./Components/Common Components/Notification/Notification";
+import BrowseRequest from "./Components/Common Components/BrowseRequests/BrowseRequest";
 import './App.css';
 import './Responsive.css';
 
@@ -41,8 +42,8 @@ const App = () => {
         <Route path="/contact-us" element={<Contactus />} />
         <Route path="/profile" element={<MyProfile />} />
         <Route path="/notification" element={<Notification />} />
+        <Route path="/browse-requests" element={<BrowseRequest />} />
         {/*<Route path="/category/:name" element={< CategoriesPost />} />
-        <Route path="/browse-requests" element={<BrowseRequests />} />
         <Route path="/my-requests" element={<MyRequest />} />
         <Route path="/my-proposals" element={<MyProposal />} />
         <Route path="/my-tasks" element={<MyTasks />} />

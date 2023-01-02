@@ -80,7 +80,7 @@ const useStyles = makeStyles(() => ({
     },
 
     crossIcon: {
-        fontSize: '45px!important',
+        fontSize: '30px!important',
         cursor: 'pointer',
         color: 'gray',
     },

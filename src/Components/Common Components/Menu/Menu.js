@@ -344,11 +344,6 @@ const Menu = (props) => {
                                                                                 Past Tasks
                                                                             </MenuItem>
                                                                         </NavLink>
-                                                                        <NavLink to="/search-posts">
-                                                                            <MenuItem onClick={handleClose}>
-                                                                                Search posts
-                                                                            </MenuItem>
-                                                                        </NavLink>
                                                                         <NavLink to="/help">
                                                                             <MenuItem onClick={handleClose}>
                                                                                 Help
