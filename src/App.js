@@ -10,8 +10,8 @@ import LoginLayout from './Components/Login/LoginLayout';
 import MyProfile from "./Components/Common Components/MyProfile/MyProfile";
 import Notification from "./Components/Common Components/Notification/Notification";
 import BrowseRequestLayout from './Components/Common Components/BrowseRequests/BrowseRequestLayout';
-import MyTasksLayout from './Components/Seeker or Provider Common Components/MyTasks/MyTasksLayout';
-import PastTasks from "./Components/Seeker or Provider Common Components/PastTasks/PastTasks";
+import MyTasksLayout from './Components/Skill Seeker Components/MyTasks/MyTasksLayout';
+import PastTasks from "./Components/Skill Seeker Components/PastTasks/PastTasks";
 import './App.css';
 import './Responsive.css';
 
