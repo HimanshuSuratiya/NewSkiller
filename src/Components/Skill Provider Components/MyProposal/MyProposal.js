@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
+import MyProposalDetail from "./MyProposalDetail";
 import Menu from "../../Common Components/Menu/Menu";
-import Divider from '@mui/material/Divider';
-import TextField from "@material-ui/core/TextField";
-import SearchIcon from "@material-ui/icons/Search";
-import TaskData from "../../TaskData";
 import LanguageIcon from '@mui/icons-material/Language';
 import DateRangeIcon from '@mui/icons-material/DateRange';
-import AddLocationIcon from '@mui/icons-material/AddLocation';
 import Avatar from '@mui/material/Avatar';
-import MyProposalDetail from "./MyProposalDetail";
+import AddLocationIcon from '@mui/icons-material/AddLocation';
+import TextField from "@material-ui/core/TextField";
+import SearchIcon from "@material-ui/icons/Search";
+import Divider from '@mui/material/Divider';
+import Tooltip from '@mui/material/Tooltip';
+import ListIcon from '@mui/icons-material/List';
+import TaskData from "../../TaskData";
+
+const defaultState = {
+    showMap: false,
+    activeClassId: 'browse-card-3',
+    cardData: {},
+}
 
 const MyProposal = () => {
-    const [detail, setDetail] = useState(false);
-    const [cardData, setCardDate] = useState({});
+    const [state, setState] = useState(defaultState);
+    const [cardDetail, setCardDetail] = useState(false);
 
     const setActiveClass = (id) => {
         let selectedCard = document.getElementById(`browse-card-${id}`)
@@ -33,8 +41,8 @@ const MyProposal = () => {
             <section style={{ marginTop: '70px' }}>
                 <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='container'>
-                    <div className='d-flex justify-content-start align-items-center' style={{ padding: '0px 25px' }}>
-                        <div style={{ paddingLeft: '10px' }} className='d-flex align-items-center justify-content-between'>
+                    <div className='d-flex justify-content-between align-items-center' style={{ padding: '0px 25px' }}>
+                        <div className='d-flex align-items-center justify-content-between' style={{ width: '290px', marginLeft: '10px' }}>
                             <TextField
                                 variant="outlined"
                                 size="small"
@@ -42,17 +50,26 @@ const MyProposal = () => {
                                 InputProps={{ endAdornment: <SearchIcon /> }}
                             />
                         </div>
+                        <div style={{ width: `${state.showMap ? '345px' : '385px'}` }}>
+                            <h3>My Proposal</h3>
+                        </div>
+                        <div>
+                            {state.showMap &&
+                                <Tooltip title="List">
+                                    <ListIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); setCardDetail(false) }} style={{ fontSize: '40px' }} />
+                                </Tooltip>
+                            }
+                        </div>
                     </div>
                 </div>
                 <Divider className='my-1' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='BrowseRequest'>
                     <div className='container px-5'>
                         <div className='row'>
-                            <div className='col-lg-4 left-main-Div'>
+                            <div className={`${state.showMap ? 'col-lg-4 left-main-Div' : 'left-main-Div my-task-single-line-card'}`}>
                                 {TaskData.map((item, index) => {
                                     return (
-                                        <div key={index} id={`browse-card-${index}`} className='m-2 rounded card-main-div' onClick={() => { setCardDate(item); setActiveClass(index); setDetail(true) }
-                                        } style={{ width: '365px' }}>
+                                        <div key={index} id={`browse-card-${index}`} className={`${state.showMap ? 'm-2 rounded card-main-div' : 'm-2 rounded card-main-div my-task-single-card-width'}`} onClick={() => { if (state.showMap) { setState((prevState) => ({ ...prevState, cardData: item })); setActiveClass(index); setCardDetail(true) } else { setActiveClass(index); setCardDetail(true); setState((prevState) => ({ ...prevState, cardData: item, showMap: !state.showMap })); } }}>
                                             <div className='px-2 d-flex justify-content-between align-items-center'>
                                                 <h4 className='px-1 m-0 '>{item.taskName}</h4>
                                                 <span className='px-1 dollerPrice'>${item.price}</span>
@@ -81,9 +98,9 @@ const MyProposal = () => {
                                     )
                                 })}
                             </div>
-                            {detail &&
+                            {cardDetail &&
                                 <div className='col-lg-8 right-main-div'>
-                                    <MyProposalDetail cardData={cardData} setDetail={setDetail} />
+                                    <MyProposalDetail cardData={state.cardData} />
                                 </div>
                             }
                         </div>
@@ -91,7 +108,7 @@ const MyProposal = () => {
                 </div>
             </section>
         </>
-    );
-};
+    )
+}
 
 export default MyProposal;
