@@ -27,15 +27,15 @@ const PastTasks = () => {
             <Menu color={'#8fc1e2'} />
             <section style={{ marginTop: '70px' }}>
                 <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
-                <div className='container px-4'>
-                    <div className='d-flex justify-content-between align-items-center' style={{ padding: '0px 25px' }}>
-                        <div className='w-50 pe-2'>
+                <div className='container px-5'>
+                    <div className='row text-center px-2'>
+                        <div className='col-lg-6 ps-0 text-start ps-1'>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <Stack spacing={3}>
-                                    <div className='d-flex justify-content-between align-items-center'>
+                                    <div>
                                         <DesktopDatePicker
                                             label="Start Date"
-                                            className='past-task-datepicker'
+                                            className='past-task-datepicker me-2'
                                             inputFormat="MM/DD/YYYY"
                                             value={value}
                                             onChange={handleChange}
@@ -43,7 +43,7 @@ const PastTasks = () => {
                                         />
                                         <DesktopDatePicker
                                             label="End Date"
-                                            className='past-task-datepicker'
+                                            className='past-task-datepicker ms-2'
                                             inputFormat="MM/DD/YYYY"
                                             value={value}
                                             onChange={handleChange}
@@ -53,13 +53,20 @@ const PastTasks = () => {
                                 </Stack>
                             </LocalizationProvider>
                         </div>
-                        <div>
-                            <TextField
-                                variant="outlined"
-                                size="small"
-                                placeholder={'Search'}
-                                InputProps={{ endAdornment: <SearchIcon /> }}
-                            />
+                        <div className='col-lg-3'>
+                            <div>
+                                <h3>Past Tasks</h3>
+                            </div>
+                        </div>
+                        <div className='col-lg-3 pe-0 text-right'>
+                            <div>
+                                <TextField
+                                    variant="outlined"
+                                    size="small"
+                                    placeholder={'Search'}
+                                    InputProps={{ endAdornment: <SearchIcon /> }}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -145,4 +152,4 @@ const PastTasks = () => {
     )
 }
 
-export default PastTasks
+export default PastTasks;

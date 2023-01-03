@@ -40,25 +40,31 @@ const MyProposal = () => {
             <Menu color={'#8fc1e2'} />
             <section style={{ marginTop: '70px' }}>
                 <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
-                <div className='container'>
-                    <div className='d-flex justify-content-between align-items-center' style={{ padding: '0px 25px' }}>
-                        <div className='d-flex align-items-center justify-content-between' style={{ width: '290px', marginLeft: '10px' }}>
-                            <TextField
-                                variant="outlined"
-                                size="small"
-                                placeholder={'Search'}
-                                InputProps={{ endAdornment: <SearchIcon /> }}
-                            />
+                <div className='container px-5'>
+                    <div className='row text-center'>
+                        <div className='col-lg-4 ps-0'>
+                            <div className='d-flex align-items-center justify-content-between' style={{ width: '290px', marginLeft: '10px' }}>
+                                <TextField
+                                    variant="outlined"
+                                    size="small"
+                                    placeholder={'Search'}
+                                    InputProps={{ endAdornment: <SearchIcon /> }}
+                                />
+                            </div>
                         </div>
-                        <div style={{ width: `${state.showMap ? '345px' : '385px'}` }}>
-                            <h3>My Proposal</h3>
+                        <div className='col-lg-4'>
+                            <div>
+                                <h3>My Proposals</h3>
+                            </div>
                         </div>
-                        <div>
-                            {state.showMap &&
-                                <Tooltip title="List">
-                                    <ListIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); setCardDetail(false) }} style={{ fontSize: '40px' }} />
-                                </Tooltip>
-                            }
+                        <div className='col-lg-4 pe-0 text-right'>
+                            <div>
+                                {state.showMap &&
+                                    <Tooltip title="List">
+                                        <ListIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); setCardDetail(false) }} style={{ fontSize: '40px' }} />
+                                    </Tooltip>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

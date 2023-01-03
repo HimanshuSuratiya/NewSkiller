@@ -133,7 +133,7 @@ const Signup = () => {
                                             fullWidth
                                             variant='outlined'
                                             size='large'
-                                            label={'Location'}
+                                            label={'Phone Number'}
                                         />
                                     </div>
                                     <div className="form-outline mt-3">
@@ -141,7 +141,7 @@ const Signup = () => {
                                             fullWidth
                                             variant='outlined'
                                             size='large'
-                                            label={'Phone Number'}
+                                            label={'Location'}
                                         />
                                     </div>
                                     <div className="form-outline mt-3">
@@ -158,7 +158,7 @@ const Signup = () => {
                                             aria-label="minimum height"
                                             minRows={2}
                                             style={{ width: '100%' }}
-                                            placeholder="Enter your address"
+                                            placeholder="Enter your Location Address"
                                         />
                                     </div>
                                     <div className="d-flex justify-content-center mt-2">
