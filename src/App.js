@@ -13,6 +13,7 @@ import BrowseRequestLayout from './Components/Common Components/BrowseRequests/B
 import MyTasksLayout from './Components/Skill Seeker Components/MyTasks/MyTasksLayout';
 import PastTasks from "./Components/Skill Seeker Components/PastTasks/PastTasks";
 import MyProposalLayout from './Components/Skill Provider Components/MyProposal/MyProposalLayout';
+import MyRequest from "./Components/Skill Provider Components/MyRequest/MyRequest";
 import './App.css';
 import './Responsive.css';
 
@@ -49,8 +50,8 @@ const App = () => {
         <Route path="/my-tasks/*" element={<MyTasksLayout />} />
         <Route path="/past-tasks" element={<PastTasks />} />
         <Route path="/my-proposals/*" element={<MyProposalLayout />} />
-        {/*<Route path="/category/:name" element={< CategoriesPost />} />
         <Route path="/my-requests" element={<MyRequest />} />
+        {/*<Route path="/category/:name" element={< CategoriesPost />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/search-posts" element={<BrowseRequests />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
