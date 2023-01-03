@@ -25,7 +25,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useNavigate } from 'react-router-dom';
 import MultiImageInput from "react-multiple-image-input";
-import { Upload, Button } from "antd";
+import { Upload } from "antd";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import "./PostATasker.css";
 
@@ -111,8 +111,7 @@ const useStyles = makeStyles(() => ({
 const defaultState = {
     skills: ["ex:Skills"],
     selectedTab: 0,
-    learningMethod: 1,
-    learningMethodTab: 0,
+    learningMethod: '',
     Country: '',
     city: '',
     catergory: '',
@@ -139,10 +138,26 @@ const names = [
     'Korean',
 ];
 
+const phoneSelection = [
+    'Google hangout',
+    'zoom',
+    'teams',
+    'phone call',
+];
+
 function getStyles(name, personName, theme) {
     return {
         fontWeight:
             personName.indexOf(name) === -1
+                ? theme.typography.fontWeightRegular
+                : theme.typography.fontWeightMedium,
+    };
+}
+
+function getPhoneSelection(name, phoneSelect, theme) {
+    return {
+        fontWeight:
+            phoneSelect.indexOf(name) === -1
                 ? theme.typography.fontWeightRegular
                 : theme.typography.fontWeightMedium,
     };
@@ -156,6 +171,7 @@ const PostATasker = () => {
     let navigate = useNavigate();
     const [state, setState] = useState(defaultState)
     const [personName, setPersonName] = useState([]);
+    const [phoneSelect, setPhoneSelect] = useState([]);
     const [images, setImages] = useState({});
     const [fileList, setFileList] = useState([]);
 
@@ -163,10 +179,6 @@ const PostATasker = () => {
         unit: "%",
         aspect: 4 / 3,
         width: "100"
-    };
-
-    const handleLearningMethodTab = (event, newValue) => {
-        setState((prevState) => ({ ...prevState, learningMethodTab: newValue, learningMethod: newValue + 1 }));
     };
 
     const selectCategory = (event) => {
@@ -210,6 +222,15 @@ const PostATasker = () => {
             target: { value },
         } = event;
         setPersonName(
+            typeof value === 'string' ? value.split(',') : value,
+        );
+    };
+
+    const handlePhoneSelection = (event) => {
+        const {
+            target: { value },
+        } = event;
+        setPhoneSelect(
             typeof value === 'string' ? value.split(',') : value,
         );
     };
@@ -423,26 +444,21 @@ const PostATasker = () => {
                             </div>
                         </TabPanel>
                         <TabPanel value={state.selectedTab} index={5} style={{ overflow: 'auto', width: '85%' }}>
-                            <Select
-                                style={{ width: '100%' }}
-                                value={state.learningMethod}
-                                onChange={selectLearningMethod}
-                                displayEmpty
-                                variant="outlined"
-                                className='mb-4'
-                            >
-                                <MenuItem value={0}>{"Select Your Learning Method"}</MenuItem>
-                                <MenuItem value={1}>{"Text"}</MenuItem>
-                                <MenuItem value={2}>{"Phone call"}</MenuItem>
-                            </Select>
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Select Your Learning Method</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={state.learningMethod}
+                                    label="Select Your Learning Method"
+                                    onChange={selectLearningMethod}
+                                >
+                                    <MenuItem value={1}>{"Text"}</MenuItem>
+                                    <MenuItem value={2}>{"Phone call"}</MenuItem>
+                                </Select>
+                            </FormControl>
                             {state.learningMethod != 0 ?
                                 <Box sx={{ width: '100%', backgroundColor: '' }}>
-                                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                        <Tabs value={state.learningMethodTab} onChange={handleLearningMethodTab} aria-label="basic tabs example">
-                                            <Tab label="Text" {...a11yProps(0)} />
-                                            <Tab label="Phone call" {...a11yProps(1)} />
-                                        </Tabs>
-                                    </Box>
                                     <TabPanel value={state.learningMethodTab} index={0} style={{ overflow: 'auto', width: '100%' }}>
                                         <h5>Get text message (email) of how to solve your problem</h5>
                                         <div className='d-flex justify-content-around'>
@@ -484,6 +500,37 @@ const PostATasker = () => {
                                     </TabPanel>
                                     <TabPanel value={state.learningMethodTab} index={1} style={{ overflow: 'auto', width: '100%' }}>
                                         <h5>Google hangout, zoom, teams, phone call, up to 1 hour or 3 calls</h5>
+                                        <div className='mt-4'>
+                                            <FormControl sx={{ width: '100%' }}>
+                                                <InputLabel id="demo-multiple-chip-label">Select your options</InputLabel>
+                                                <Select
+                                                    labelId="demo-multiple-chip-label"
+                                                    id="demo-multiple-chip"
+                                                    multiple
+                                                    value={phoneSelect}
+                                                    onChange={handlePhoneSelection}
+                                                    input={<OutlinedInput id="select-multiple-chip" label="Select your options" />}
+                                                    renderValue={(selected) => (
+                                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                                            {selected.map((value) => (
+                                                                <Chip key={value} label={value} />
+                                                            ))}
+                                                        </Box>
+                                                    )}
+                                                    MenuProps={MenuProps}
+                                                >
+                                                    {phoneSelection.map((name) => (
+                                                        <MenuItem
+                                                            key={name}
+                                                            value={name}
+                                                            style={getPhoneSelection(name, phoneSelect, theme)}
+                                                        >
+                                                            {name}
+                                                        </MenuItem>
+                                                    ))}
+                                                </Select>
+                                            </FormControl>
+                                        </div>
                                     </TabPanel>
                                 </Box>
                                 : ''}
