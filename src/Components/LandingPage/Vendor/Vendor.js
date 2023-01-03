@@ -10,6 +10,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import "../LandingPage.css";
+import { NavLink } from 'react-router-dom';
 
 const Vendor = () => {
     const VendorData = [
@@ -110,36 +111,38 @@ const Vendor = () => {
                             {VendorData.map((item, index) => {
                                 return (
                                     <SwiperSlide key={index}>
-                                        <div className="swiper-slide swiper-slide-visible swiper-slide-active" data-swiper-slide-index="0" role="group" aria-label="1 / 4" style={{ width: "362px", marginRight: "30px" }}>
-                                            <div className="aon-ow-provider-wrap">
-                                                <div className="aon-ow-provider shine-hover">
-                                                    <div className="aon-ow-top">
-                                                        <div className="aon-pro-check"><span> <DoneIcon /></span></div>
-                                                        <div className="aon-pro-favorite"><a href="#"> <FavoriteBorderIcon /></a></div>
-                                                        <div className="aon-ow-info">
-                                                            <h4 className="aon-title"><a href="#!">Mila Kunis</a></h4>
-                                                            <span>Queens, United States</span>
+                                        <NavLink to="user-profile">
+                                            <div className="swiper-slide swiper-slide-visible swiper-slide-active" data-swiper-slide-index="0" role="group" aria-label="1 / 4" style={{ width: "362px", marginRight: "30px" }}>
+                                                <div className="aon-ow-provider-wrap">
+                                                    <div className="aon-ow-provider shine-hover">
+                                                        <div className="aon-ow-top">
+                                                            <div className="aon-pro-check"><span> <DoneIcon /></span></div>
+                                                            <div className="aon-pro-favorite"><a> <FavoriteBorderIcon /></a></div>
+                                                            <div className="aon-ow-info">
+                                                                <h4 className="aon-title"><a>Mila Kunis</a></h4>
+                                                                <span>Queens, United States</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="aon-ow-mid">
+                                                            <div className="aon-ow-media media-bg-animate">
+                                                                <a className="shine-box"><img src={item.imgSource} alt="" /></a>
+                                                            </div>
+                                                            <p>Through our expertise, technological knowledge, global presence and bespoke.</p>
+                                                            <div className="aon-ow-pro-rating">
+                                                                <span><StarBorderIcon /></span>
+                                                                <span><StarBorderIcon /></span>
+                                                                <span><StarBorderIcon /></span>
+                                                                <span><StarBorderIcon /></span>
+                                                                <span><StarBorderIcon /></span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div className="aon-ow-mid">
-                                                        <div className="aon-ow-media media-bg-animate">
-                                                            <a className="shine-box" href="#!"><img src={item.imgSource} alt="" /></a>
-                                                        </div>
-                                                        <p>Through our expertise, technological knowledge, global presence and bespoke.</p>
-                                                        <div className="aon-ow-pro-rating">
-                                                            <span><StarBorderIcon /></span>
-                                                            <span><StarBorderIcon /></span>
-                                                            <span><StarBorderIcon /></span>
-                                                            <span><StarBorderIcon /></span>
-                                                            <span><StarBorderIcon /></span>
-                                                        </div>
+                                                    <div className="aon-ow-bottom">
+                                                        <a>Request A Quote</a>
                                                     </div>
-                                                </div>
-                                                <div className="aon-ow-bottom">
-                                                    <a href="profile-full.html">Request A Quote</a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </NavLink>
                                     </SwiperSlide>
                                 )
                             })}

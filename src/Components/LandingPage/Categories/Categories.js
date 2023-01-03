@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FreeMode, Pagination, Navigation } from "swiper";
 import "../LandingPage.css";
+import { NavLink } from "react-router-dom";
 
 const Categories = () => {
     const CategoriesData = [
@@ -111,16 +112,18 @@ const Categories = () => {
                                             {CategoriesData.map((item, index) => {
                                                 return (
                                                     <SwiperSlide key={index}>
-                                                        <div className="swiper-slide">
-                                                            <div>
-                                                                <a href="#!" className="teamImg">
-                                                                    <img src={item.imgSource} />
-                                                                </a>
-                                                                <div className="member-info">
-                                                                    <h3>{item.text}</h3>
+                                                        <NavLink to={`/category/${item.text}`}>
+                                                            <div className="swiper-slide">
+                                                                <div>
+                                                                    <a className="teamImg">
+                                                                        <img src={item.imgSource} />
+                                                                    </a>
+                                                                    <div className="member-info">
+                                                                        <h3>{item.text}</h3>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </NavLink>
                                                     </SwiperSlide>
                                                 )
                                             })}

@@ -14,6 +14,8 @@ import MyTasksLayout from './Components/Skill Seeker Components/MyTasks/MyTasksL
 import PastTasks from "./Components/Skill Seeker Components/PastTasks/PastTasks";
 import MyProposalLayout from './Components/Skill Provider Components/MyProposal/MyProposalLayout';
 import MyRequest from "./Components/Skill Provider Components/MyRequest/MyRequest";
+import UserProfile from "./Components/Common Components/UserProfile/UserProfile";
+import CategoriesLayout from './Components/Common Components/CategoriesPost/CategoriesLayout';
 import './App.css';
 import './Responsive.css';
 
@@ -51,9 +53,9 @@ const App = () => {
         <Route path="/past-tasks" element={<PastTasks />} />
         <Route path="/my-proposals/*" element={<MyProposalLayout />} />
         <Route path="/my-requests" element={<MyRequest />} />
-        {/*<Route path="/category/:name" element={< CategoriesPost />} />
         <Route path="/user-profile" element={<UserProfile />} />
-        <Route path="/search-posts" element={<BrowseRequests />} /> */}
+        <Route path="/category/:name/*" element={< CategoriesLayout />} />
+        {/* <Route path="/search-posts" element={<BrowseRequests />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

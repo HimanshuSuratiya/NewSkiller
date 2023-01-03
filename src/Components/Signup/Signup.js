@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Images from "../../Images/Image";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import { TextField, TextareaAutosize } from '@mui/material';
+import { TextField } from '@mui/material';
 import { makeStyles } from "@material-ui/core/styles";
 import "../../Animation.css";
 import Banner from "../Common Components/Banner/Banner";
@@ -141,24 +141,7 @@ const Signup = () => {
                                             fullWidth
                                             variant='outlined'
                                             size='large'
-                                            label={'Location'}
-                                        />
-                                    </div>
-                                    <div className="form-outline mt-3">
-                                        <TextField
-                                            fullWidth
-                                            variant='outlined'
-                                            size='large'
-                                            label={'Country'}
-                                        />
-                                    </div>
-                                    <div className="form-group mt-3">
-                                        <TextareaAutosize
-                                            className='p-2'
-                                            aria-label="minimum height"
-                                            minRows={2}
-                                            style={{ width: '100%' }}
-                                            placeholder="Enter your Location Address"
+                                            label={'Location Address'}
                                         />
                                     </div>
                                     <div className="d-flex justify-content-center mt-2">
