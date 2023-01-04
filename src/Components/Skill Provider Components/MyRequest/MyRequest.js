@@ -47,7 +47,7 @@ const MenuProps = {
     }
 };
 
-const names = [
+const category = [
     "Oliver Hansen",
     "Van Henry",
     "April Tucker",
@@ -60,6 +60,15 @@ const names = [
     "Kelly Snyder"
 ];
 
+const languageList = [
+    'English',
+    'Spanish',
+    'Arabic',
+    'Russian',
+    'Japanese',
+    'Korean',
+];
+
 function valuetextDistance(value) {
     return `${value}`;
 }
@@ -70,10 +79,8 @@ function valuetextTaskBudget(value) {
 
 const defaultState = {
     category: [],
-    distanceRangeValue: [20, 40],
+    language: [],
     taskBudgetRangeValue: [10, 40],
-    distanceMinRangeValue: 20,
-    distanceMaxRangeValue: 40,
     location: '',
     taskBudgetMinRangeValue: 10,
     taskBudgetMaxRangeValue: 40,
@@ -91,26 +98,6 @@ const MyRequest = () => {
     const [toggleShow, setToggleShow] = useState({
         left: false,
     });
-
-    const handleDistanceRangeChange = (event, newValue) => {
-        setState((prevState) => ({ ...prevState, distanceRangeValue: newValue, distanceMinRangeValue: newValue[0], distanceMaxRangeValue: newValue[1] }));
-    };
-
-    const handleDistanceMinimumRange = (event) => {
-        if (event.target.value <= state.distanceMaxRangeValue) {
-            setState((prevState) => ({ ...prevState, distanceMinRangeValue: event.target.value, distanceRangeValue: [event.target.value, state.distanceMaxRangeValue] }));
-        } else {
-            alert('Please select Smallest Distance');
-        }
-    };
-
-    const handleDistanceMaximumRange = (event) => {
-        if (event.target.value >= state.distanceMinRangeValue) {
-            setState((prevState) => ({ ...prevState, distanceMaxRangeValue: event.target.value, distanceRangeValue: [state.distanceMinRangeValue, event.target.value] }));
-        } else {
-            alert('Please select greatest Distance');
-        }
-    };
 
     const handleTaskBudgetRangeChange = (event, newValue) => {
         setState((prevState) => ({ ...prevState, taskBudgetRangeValue: newValue, taskBudgetMinRangeValue: newValue[0], taskBudgetMaxRangeValue: newValue[1] }));
@@ -150,9 +137,29 @@ const MyRequest = () => {
         setState((prevState) => ({ ...prevState, category: typeof value === "string" ? value.split(",") : value }));
     };
 
+    const selectLanguage = (event) => {
+        const {
+            target: { value }
+        } = event;
+        setState((prevState) => ({ ...prevState, language: typeof value === "string" ? value.split(",") : value }));
+    };
+
     const selectLocation = (event) => {
         setState((prevState) => ({ ...prevState, location: event.target.value }));
     };
+
+    const setActiveClass = (id) => {
+        let selectedCard = document.getElementById(`browse-card-${id}`)
+        let allSelectCard = document.querySelectorAll('.card-main-div');
+        allSelectCard.forEach(item => {
+            if (item.id === selectedCard.id) {
+                item.style.border = '2px solid #188dc7';
+                item.style.boxShadow = 'rgb(24 141 199 / 40%) 5px 5px,rgba(24, 141, 199, 0.3) 10px 10px';
+            } else {
+                item.style = 'none';
+            }
+        });
+    }
 
     function TabPanel(props) {
         const { children, value, index, ...other } = props;
@@ -245,10 +252,10 @@ const MyRequest = () => {
                             renderValue={(selected) => selected.join(", ")}
                             MenuProps={MenuProps}
                         >
-                            {names.map((name) => (
-                                <MenuItem key={name} value={name}>
-                                    <Checkbox checked={state.category.indexOf(name) > -1} />
-                                    <ListItemText primary={name} />
+                            {category.map((category) => (
+                                <MenuItem key={category} value={category}>
+                                    <Checkbox checked={state.category.indexOf(category) > -1} />
+                                    <ListItemText primary={category} />
                                 </MenuItem>
                             ))}
                         </Select>
@@ -256,56 +263,29 @@ const MyRequest = () => {
                 </div>
             </div>
             <Divider className='mt-3 mb-3' style={{ backgroundColor: '#a9a4a4' }} />
-            <div>
-                <h4 className='p-0 m-0 filter-heading'>Distance</h4>
+            <div className='my-2'>
+                <h4 className='p-0 m-0 filter-heading'>Languages</h4>
                 <div className='d-flex justify-content-center align-items-center'>
-                    <Box sx={{ width: 240 }}>
-                        <Slider
-                            className="browser-request-range-slider"
-                            getAriaLabel={() => 'Temperature range'}
-                            value={state.distanceRangeValue}
-                            onChange={handleDistanceRangeChange}
-                            step={20}
-                            getAriaValueText={valuetextDistance}
-                        />
-                        <Box className='d-flex justify-content-between my-1'>
-                            <FormControl sx={{ minWidth: 115 }} size="small">
-                                <InputLabel id="demo-select-small">Min distance</InputLabel>
-                                <Select
-                                    labelId="demo-select-small"
-                                    id="demo-select-small"
-                                    value={state.distanceMinRangeValue}
-                                    label="Min distance"
-                                    onChange={handleDistanceMinimumRange}
-                                >
-                                    <MenuItem value={0}>5 km</MenuItem>
-                                    <MenuItem value={20}>20 km</MenuItem>
-                                    <MenuItem value={40}>50 km</MenuItem>
-                                    <MenuItem value={60}>70 km</MenuItem>
-                                    <MenuItem value={80}>100 km</MenuItem>
-                                    <MenuItem value={100}>125 km</MenuItem>
-                                </Select>
-                            </FormControl>
-                            <span className='d-flex justify-content-center align-items-center'>-</span>
-                            <FormControl sx={{ minWidth: 115 }} size="small">
-                                <InputLabel id="demo-select-small">Max distance</InputLabel>
-                                <Select
-                                    labelId="demo-select-small"
-                                    id="demo-select-small"
-                                    value={state.distanceMaxRangeValue}
-                                    label="Max distance"
-                                    onChange={handleDistanceMaximumRange}
-                                >
-                                    <MenuItem value={0}>10 km</MenuItem>
-                                    <MenuItem value={20}>20 km</MenuItem>
-                                    <MenuItem value={40}>50 km</MenuItem>
-                                    <MenuItem value={60}>75 km</MenuItem>
-                                    <MenuItem value={80}>100 km</MenuItem>
-                                    <MenuItem value={100}>150+ km</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </Box>
-                    </Box>
+                    <FormControl fullWidth size="small">
+                        <InputLabel id="demo-multiple-checkbox-label">Select Languages</InputLabel>
+                        <Select
+                            labelId="demo-multiple-checkbox-label"
+                            id="demo-multiple-checkbox"
+                            multiple
+                            value={state.language}
+                            onChange={selectLanguage}
+                            input={<OutlinedInput label="Select Category" />}
+                            renderValue={(selected) => selected.join(", ")}
+                            MenuProps={MenuProps}
+                        >
+                            {languageList.map((languageList) => (
+                                <MenuItem key={languageList} value={languageList}>
+                                    <Checkbox checked={state.language.indexOf(languageList) > -1} />
+                                    <ListItemText primary={languageList} />
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </div>
             </div>
             <Divider className='my-3' style={{ backgroundColor: '#a9a4a4' }} />
@@ -623,4 +603,4 @@ const MyRequest = () => {
     )
 }
 
-export default MyRequest
+export default MyRequest;
