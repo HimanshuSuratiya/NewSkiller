@@ -10,6 +10,8 @@ import InputAdornment from '@mui/material/InputAdornment'
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import Select from '@mui/material/Select';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import "./MyWallet.css";
@@ -94,7 +96,7 @@ const MyWallet = () => {
                                                     </div>
                                                     <div className='text-right'>
                                                         <p className='transaction-para p-0 m-0 blue'>{Item.amount}</p>
-                                                        <p className='transaction-para mt-1'>Wallet Mode : <span className='blue'>{Item.walletMode}</span></p>
+                                                        <p className='transaction-para mt-1'>Wallet Mode : <span className={`${Item.walletMode === 'CREDIT' ? 'green' : Item.walletMode === 'DEBIT' ? 'red' : ''}`}> {Item.walletMode === 'CREDIT' ? <AddIcon style={{ fontSize: '12px' }} /> : Item.walletMode === 'DEBIT' ? <RemoveIcon style={{ fontSize: '12px' }} /> : ''}{Item.walletMode}</span></p>
                                                     </div>
                                                 </div>
                                                 <Divider className='mt-1 mb-1' style={{ backgroundColor: '#a9a4a4' }} />
@@ -137,6 +139,37 @@ const MyWallet = () => {
                                         />
                                     </FormControl>
                                     <button className="withdrawal-btn">Proceed To Add Money</button>
+                                </div>
+                            </div>
+                            <div className='main-transaction-div-area mt-4'>
+                                <div className='d-flex my-wallet-section justify-content-between align-items-center'>
+                                    <div className='d-flex align-items-center py-2'>
+                                        <span className='ps-2'> <CurrencyExchangeIcon /> </span>
+                                        <h4 className='my-wallet-heading m-0 p-2'>Wallet Transactions</h4>
+                                    </div>
+                                </div>
+                                <div className='main-transaction-history-div'>
+                                    {transactionData.map((Item) => {
+                                        return (
+                                            <>
+                                                <div className='inner-transaction-history-div mt-3 d-flex justify-content-evenly align-items-center'>
+                                                    <div className='text-left'>
+                                                        <AccountBalanceWalletIcon style={{ color: '#188dc7' }} />
+                                                        <p className='transaction-para mt-1'>{Item.dateTime}</p>
+                                                    </div>
+                                                    <div className='text-center'>
+                                                        <p className='transaction-para p-0 m-0 blue'>Transaction-ID</p>
+                                                        <p className='transaction-para mt-1'>{Item.transactionId}</p>
+                                                    </div>
+                                                    <div className='text-right'>
+                                                        <p className='transaction-para p-0 m-0 blue'>{Item.amount}</p>
+                                                        <p className='transaction-para mt-1'>Wallet Mode : <span className={`${Item.walletMode === 'CREDIT' ? 'green' : Item.walletMode === 'DEBIT' ? 'red' : ''}`}> {Item.walletMode === 'CREDIT' ? <AddIcon style={{ fontSize: '12px' }} /> : Item.walletMode === 'DEBIT' ? <RemoveIcon style={{ fontSize: '12px' }} /> : ''}{Item.walletMode}</span></p>
+                                                    </div>
+                                                </div>
+                                                <Divider className='mt-1 mb-1' style={{ backgroundColor: '#a9a4a4' }} />
+                                            </>
+                                        )
+                                    })}
                                 </div>
                             </div>
                         </div>
