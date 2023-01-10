@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import Images from "../../../Images/Image";
-import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import AddIcon from '@mui/icons-material/Add';
 import { NavLink } from "react-router-dom";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import TextField from "@material-ui/core/TextField";
 import Avatar from '@mui/material/Avatar';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
@@ -22,6 +20,8 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 
 const defaultState = {
     categories: '',
@@ -79,6 +79,16 @@ const Menu = (props) => {
 
     const closeCategoryPopUp = () => {
         setState(prevState => ({ ...prevState, categories: '' }));
+    }
+
+    const SkillSeekerProviderStatus = () => {
+        if (localStorage.getItem('isLoginType') === 'skillseeker') return false
+        else if (localStorage.getItem('isLoginType') === 'skillprovider') return true
+    }
+
+    const handleSkillSeekerProviderStatus = () => {
+        if (localStorage.getItem('isLoginType') === 'skillseeker') localStorage.setItem('isLoginType', 'skillprovider')
+        else if (localStorage.getItem('isLoginType') === 'skillprovider') localStorage.setItem('isLoginType', 'skillseeker')
     }
 
     return (
@@ -203,15 +213,8 @@ const Menu = (props) => {
                                     <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
                                 </ul>
                                 <div className="d-flex">
-                                    <form>
-                                        <TextField
-                                            className="main-search-bar"
-                                            variant="standard"
-                                            size="small"
-                                            placeholder={'Search'}
-                                            InputProps={{ endAdornment: <SearchIcon /> }}
-                                        />
-                                    </form>
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" />
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" defaultChecked={SkillSeekerProviderStatus()} onChange={handleSkillSeekerProviderStatus} />} label="SkillProvider" />
                                     <div className="ms-2 d-flex justify-content-center align-items-center">
                                         <div className="d-flex user-detail-main-area">
                                             <div className="user-img-area Notification-dropdown">
@@ -484,15 +487,8 @@ const Menu = (props) => {
                                     <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
                                 </ul>
                                 <div className="d-flex">
-                                    <form>
-                                        <TextField
-                                            className="main-search-bar"
-                                            variant="standard"
-                                            size="small"
-                                            placeholder={'Search'}
-                                            InputProps={{ endAdornment: <SearchIcon /> }}
-                                        />
-                                    </form>
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" />
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" defaultChecked={SkillSeekerProviderStatus()} onChange={handleSkillSeekerProviderStatus} />} label="SkillProvider" />
                                     <div className="ms-2 d-flex justify-content-center align-items-center">
                                         <div className="d-flex user-detail-main-area">
                                             <div className="user-img-area Notification-dropdown">
@@ -840,15 +836,6 @@ const Menu = (props) => {
                                     </Stack>
                                 </ul>
                                 <div className="d-flex">
-                                    <form>
-                                        <TextField
-                                            className="main-search-bar"
-                                            variant="standard"
-                                            size="small"
-                                            placeholder={'Search'}
-                                            InputProps={{ endAdornment: <SearchIcon /> }}
-                                        />
-                                    </form>
                                     <button className="btn defoultBtn"> <NavLink className="nav-link" to="/login"> <PersonIcon /> Login </NavLink></button>
                                     <button className="btn defoultBtn signupBtn"> <NavLink className="nav-link" to="/signup"> <AddIcon /> Sign Up </NavLink></button>
                                 </div>
