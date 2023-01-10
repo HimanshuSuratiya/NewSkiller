@@ -606,6 +606,11 @@ const Menu = (props) => {
                                                                                 My Profile
                                                                             </MenuItem>
                                                                         </NavLink>
+                                                                        <NavLink to="/wallet">
+                                                                            <MenuItem onClick={handleClose}>
+                                                                                My Wallet
+                                                                            </MenuItem>
+                                                                        </NavLink>
                                                                         <NavLink to="/my-requests">
                                                                             <MenuItem onClick={handleClose}>
                                                                                 My Requests

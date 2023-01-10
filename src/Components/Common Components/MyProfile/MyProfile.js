@@ -3,7 +3,6 @@ import "./MyProfile.css";
 import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import Menu from "../Menu/Menu";
-import Images from "../../../Images/Image";
 import { TextField, TextareaAutosize } from '@mui/material';
 import LanguageIcon from '@mui/icons-material/Language';
 import GitHubIcon from '@mui/icons-material/GitHub';

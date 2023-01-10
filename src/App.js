@@ -8,6 +8,7 @@ import Contactus from "./Components/Common Components/Contactus/Contactus";
 import SignupLayout from './Components/Signup/SignupLayout';
 import LoginLayout from './Components/Login/LoginLayout';
 import MyProfile from "./Components/Common Components/MyProfile/MyProfile";
+import MyWallet from "./Components/Skill Provider Components/MyWallet/MyWallet";
 import Notification from "./Components/Common Components/Notification/Notification";
 import BrowseRequestLayout from './Components/Common Components/BrowseRequests/BrowseRequestLayout';
 import MyTasksLayout from './Components/Skill Seeker Components/MyTasks/MyTasksLayout';
@@ -47,6 +48,7 @@ const App = () => {
         <Route path="/help" element={<Help />} />
         <Route path="/contact-us" element={<Contactus />} />
         <Route path="/profile" element={<MyProfile />} />
+        <Route path="/wallet" element={<MyWallet />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/browse-requests/*" element={<BrowseRequestLayout />} />
         <Route path="/my-tasks/*" element={<MyTasksLayout />} />
