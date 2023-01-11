@@ -17,7 +17,8 @@ import MyProposalLayout from './Components/Skill Provider Components/MyProposal/
 import MyRequest from "./Components/Skill Provider Components/MyRequest/MyRequest";
 import UserProfile from "./Components/Common Components/UserProfile/UserProfile";
 import CategoriesLayout from './Components/Common Components/CategoriesPost/CategoriesLayout';
-import BlogDetail from "./Components/Common Components/Blog Detail/BlogDetail";
+import BlogDetail from "./Components/Common Components/Blog/BlogDetail";
+import BlogLayout from './Components/Common Components/Blog/BlogLayout';
 import './App.css';
 import './Responsive.css';
 
@@ -42,6 +43,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/blog/*" element={<BlogLayout />} />
         <Route path="/blog-detail" element={<BlogDetail />} />
         <Route path="/login/*" element={<LoginLayout />} />
         <Route path="/signup/*" element={<SignupLayout />} />

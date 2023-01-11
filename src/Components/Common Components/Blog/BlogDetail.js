@@ -15,7 +15,7 @@ const BlogDetail = () => {
         <>
             <Menu />
             <section className="vh-80">
-                <Banner text="Blog" />
+                <Banner text="Blog-Detail" />
                 <div class="blog-category-area">
                     <h4>BLOG</h4>
                     <h2>Blog Detail</h2>
