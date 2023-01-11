@@ -2713,3 +2713,19 @@ span.input-group-append button:hover {
 }
 
 /* Notification dropdown */
+
+.blog-read-more-btn {
+    background: #188dc7;
+    border: 2px solid #188dc7;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 16px;
+    padding: 2px 20px;
+    transition: .5s;
+}
+
+.blog-read-more-btn:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background: #8fc1e2;
+}

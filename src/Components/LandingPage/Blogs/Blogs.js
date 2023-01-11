@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import Images from "../../../Images/Image";
 import "../LandingPage.css";
 
@@ -36,6 +37,9 @@ const Blogs = () => {
                                         <div className="aon-post-text">
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
                                         </div>
+                                        <div className='d-flex align-items-center justify-content-center'>
+                                            <NavLink to="/blog-detail" className='blog-read-more-btn'>Read more</NavLink>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -57,6 +61,9 @@ const Blogs = () => {
                                         <div className="aon-post-text">
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
                                         </div>
+                                        <div className='d-flex align-items-center justify-content-center'>
+                                            <NavLink to="/blog-detail" className='blog-read-more-btn'>Read more</NavLink>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -77,6 +84,9 @@ const Blogs = () => {
                                         <h4 className="aon-post-title"><a href="#!">Officia deserunt mollit anim id labrum.</a></h4>
                                         <div className="aon-post-text">
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+                                        </div>
+                                        <div className='d-flex align-items-center justify-content-center'>
+                                            <NavLink to="/blog-detail" className='blog-read-more-btn'>Read more</NavLink>
                                         </div>
                                     </div>
                                 </div>
