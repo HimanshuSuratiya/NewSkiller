@@ -69,3 +69,7 @@
 .red {
     color: red;
 }
+
+.main-card-payment-method {
+    cursor: pointer;
+}

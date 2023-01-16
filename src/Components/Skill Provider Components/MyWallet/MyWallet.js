@@ -14,6 +14,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
+import { NavLink } from 'react-router-dom';
 import "./MyWallet.css";
 
 const transactionData = [
@@ -138,7 +139,9 @@ const MyWallet = () => {
                                             label="Add Wallet Balance"
                                         />
                                     </FormControl>
-                                    <button className="withdrawal-btn">Proceed To Add Money</button>
+                                    <NavLink to="payment-method">
+                                        <button className="withdrawal-btn">Proceed To Add Money</button>
+                                    </NavLink>
                                 </div>
                             </div>
                             <div className='main-transaction-div-area mt-4'>
