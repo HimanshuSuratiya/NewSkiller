@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import MyWallet from "./MyWallet";
 import PaymentMethod from "./PaymentMethod";
-import CreditCardDetail from "./CreditCardDetail";
+import CreditCardDetail from "./Credit Card/CreditCardDetail";
 import PayPalDetail from "./PayPalDetail";
 
 const WalletLayout = () => {
