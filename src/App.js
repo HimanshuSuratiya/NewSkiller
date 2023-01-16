@@ -19,6 +19,8 @@ import UserProfile from "./Components/Common Components/UserProfile/UserProfile"
 import CategoriesLayout from './Components/Common Components/CategoriesPost/CategoriesLayout';
 import BlogDetail from "./Components/Common Components/Blog/BlogDetail";
 import BlogLayout from './Components/Common Components/Blog/BlogLayout';
+import TermsAndConditions from "./Components/Common Components/Terms & Conditions/TermsAndConditions"
+import PrivacyPolicy from "./Components/Common Components/PrivacyPolicy/PrivacyPolicy";
 import './App.css';
 import './Responsive.css';
 
@@ -51,6 +53,8 @@ const App = () => {
         <Route path="/how-it-works" element={<Howitwork />} />
         <Route path="/help" element={<Help />} />
         <Route path="/contact-us" element={<Contactus />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-conditions" element={<TermsAndConditions />} />
         <Route path="/profile" element={<MyProfile />} />
         <Route path="/wallet" element={<MyWallet />} />
         <Route path="/notification" element={<Notification />} />

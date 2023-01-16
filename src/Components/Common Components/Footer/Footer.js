@@ -37,7 +37,8 @@ const Footer = () => {
                                     <li><NavLink to="/contact-us"><KeyboardDoubleArrowRightIcon /> Contact Us</NavLink></li>
                                     <li><NavLink to="/how-it-works"><KeyboardDoubleArrowRightIcon /> How it works</NavLink></li>
                                     <li><NavLink to="/blog"><KeyboardDoubleArrowRightIcon /> Blogs</NavLink></li>
-                                    <li><NavLink to="/"><KeyboardDoubleArrowRightIcon /> Terms & Conditions</NavLink></li>
+                                    <li><NavLink to="/privacy-policy"><KeyboardDoubleArrowRightIcon /> Privacy Policy</NavLink></li>
+                                    <li><NavLink to="/terms-conditions"><KeyboardDoubleArrowRightIcon /> Terms & Conditions</NavLink></li>
                                 </ul>
                             </div>
                         </div>
