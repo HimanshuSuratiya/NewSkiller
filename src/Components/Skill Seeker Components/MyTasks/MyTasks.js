@@ -34,6 +34,7 @@ import Images from '../../../Images/Image';
 import { NavLink } from 'react-router-dom';
 import TaskData from "../../TaskData";
 import MyTasksDetail from "./MyTasksDetail";
+import PaidIcon from '@mui/icons-material/Paid';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -578,6 +579,9 @@ const MyTasks = () => {
                                                                     </div>
                                                                     <div className='d-flex align-items-center'>
                                                                         <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                    </div>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <PaidIcon className='icon' /> <span className='px-2 fontServerandDate' style={{ fontWeight: '600' }}>Payment: {item.payment} </span>
                                                                     </div>
                                                                 </div>
                                                                 <div className='d-flex align-items-center'>

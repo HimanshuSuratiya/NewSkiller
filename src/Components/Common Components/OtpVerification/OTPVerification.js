@@ -23,12 +23,25 @@ const useStyles = makeStyles(() => ({
             background: '#8fc1e2',
         },
     },
+
+    recentOtp: {
+        color: 'gray',
+        transition: '.5s',
+        fontSize: '16px',
+        "&:hover": {
+            color: 'black',
+        },
+    },
 }));
 
 const OTPVerification = () => {
     const classes = useStyles();
     const { pathname } = useLocation();
     const pathArray = pathname.split("/");
+
+    const resendOtpRequest = () => {
+        alert('Please wait your recent otp request is submitted')
+    }
 
     return (
         <>
@@ -80,7 +93,7 @@ const OTPVerification = () => {
                                     </div>
                                 </div>
                                 <div className="d-flex justify-content-around align-items-center mb-2">
-                                    <a>Resend OTP</a>
+                                    <a className={`${classes.recentOtp}`} onClick={resendOtpRequest} style={{ cursor: 'pointer' }}>Resend OTP</a>
                                 </div>
                                 <div className="d-flex justify-content-center">
                                     <div className="w-50 d-flex justify-content-evenly">

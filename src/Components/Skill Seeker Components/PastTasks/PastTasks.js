@@ -29,7 +29,7 @@ const PastTasks = () => {
                 <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='container px-5'>
                     <div className='row text-center px-2'>
-                        <div className='col-lg-6 ps-0 text-start ps-1'>
+                        <div className='col-lg-5 ps-0 text-start ps-1'>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <Stack spacing={3}>
                                     <div>
@@ -53,12 +53,12 @@ const PastTasks = () => {
                                 </Stack>
                             </LocalizationProvider>
                         </div>
-                        <div className='col-lg-3'>
+                        <div className='col-lg-2'>
                             <div>
                                 <h3>Past Tasks</h3>
                             </div>
                         </div>
-                        <div className='col-lg-3 pe-0 text-right'>
+                        <div className='col-lg-5 pe-0 text-right'>
                             <div>
                                 <TextField
                                     variant="outlined"

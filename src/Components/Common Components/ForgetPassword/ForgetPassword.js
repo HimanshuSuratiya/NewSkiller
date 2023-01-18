@@ -25,6 +25,15 @@ const useStyles = makeStyles(() => ({
             background: '#8fc1e2',
         },
     },
+
+    recentOtp: {
+        color: 'gray',
+        transition: '.5s',
+        fontSize: '16px',
+        "&:hover": {
+            color: 'black',
+        },
+    },
 }));
 
 const defaultState = {
@@ -47,6 +56,10 @@ const ForgetPassword = () => {
                 [name]: value,
             }
         })
+    }
+
+    const resendOtpRequest = () => {
+        alert('Please wait your recent otp request is submitted')
     }
 
     return (
@@ -117,7 +130,8 @@ const ForgetPassword = () => {
                                         </Grid>
                                     </div>
                                     <div className="mt-3 d-flex justify-content-center">
-                                        <button className={`btn btn-primary btn-lg btn-block ${classes.NextBtn}`} onClick={() => { setState((prevState) => ({ ...prevState, getOtpScreen: false, changePassword: true })) }}>Verify</button>
+                                        <button className={`btn btn-primary btn-lg btn-block me-2 ${classes.NextBtn}`} onClick={resendOtpRequest}>Resend OTP</button>
+                                        <button className={`btn btn-primary btn-lg btn-block ms-2 ${classes.NextBtn}`} onClick={() => { setState((prevState) => ({ ...prevState, getOtpScreen: false, changePassword: true })) }}>Verify</button>
                                     </div>
                                 </>
                             }
