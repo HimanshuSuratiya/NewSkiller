@@ -27,6 +27,7 @@ const defaultState = {
     categories: '',
     moreMenu: '',
     isOpen: false,
+    isSekerProvider: null,
     logedin: parseInt(localStorage.getItem("isLogin")),
 }
 
@@ -81,14 +82,25 @@ const Menu = (props) => {
         setState(prevState => ({ ...prevState, categories: '' }));
     }
 
-    const SkillSeekerProviderStatus = () => {
-        if (localStorage.getItem('isLoginType') === 'skillseeker') return false
-        else if (localStorage.getItem('isLoginType') === 'skillprovider') return true
+    const handleSkillSeekerClick = () => {
+        localStorage.setItem('isLoginType', 'skillseeker')
+        setState(prevState => ({ ...prevState, isSekerProvider: false }));
+    }
+
+    const handleSkillProviderClick = () => {
+        localStorage.setItem('isLoginType', 'skillprovider')
+        setState(prevState => ({ ...prevState, isSekerProvider: true }));
     }
 
     const handleSkillSeekerProviderStatus = () => {
-        if (localStorage.getItem('isLoginType') === 'skillseeker') localStorage.setItem('isLoginType', 'skillprovider')
-        else if (localStorage.getItem('isLoginType') === 'skillprovider') localStorage.setItem('isLoginType', 'skillseeker')
+        if (localStorage.getItem('isLoginType') === 'skillseeker') {
+            localStorage.setItem('isLoginType', 'skillprovider')
+            setState(prevState => ({ ...prevState, isSekerProvider: true }));
+        }
+        else if (localStorage.getItem('isLoginType') === 'skillprovider') {
+            localStorage.setItem('isLoginType', 'skillseeker')
+            setState(prevState => ({ ...prevState, isSekerProvider: false }));
+        }
     }
 
     return (
@@ -213,8 +225,9 @@ const Menu = (props) => {
                                     <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
                                 </ul>
                                 <div className="d-flex">
-                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" />
-                                    <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" defaultChecked={SkillSeekerProviderStatus()} onChange={handleSkillSeekerProviderStatus} />} label="SkillProvider" />
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" onClick={handleSkillSeekerClick} />
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" checked={state.isSekerProvider} onChange={handleSkillSeekerProviderStatus} />} />
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillProvider" onClick={handleSkillProviderClick} />
                                     <div className="ms-2 d-flex justify-content-center align-items-center">
                                         <div className="d-flex user-detail-main-area">
                                             <div className="user-img-area Notification-dropdown">
@@ -487,8 +500,9 @@ const Menu = (props) => {
                                     <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
                                 </ul>
                                 <div className="d-flex">
-                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" />
-                                    <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" defaultChecked={SkillSeekerProviderStatus()} onChange={handleSkillSeekerProviderStatus} />} label="SkillProvider" />
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" onClick={handleSkillSeekerClick} />
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" checked={state.isSekerProvider} onChange={handleSkillSeekerProviderStatus} />} />
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillProvider" onClick={handleSkillProviderClick} />
                                     <div className="ms-2 d-flex justify-content-center align-items-center">
                                         <div className="d-flex user-detail-main-area">
                                             <div className="user-img-area Notification-dropdown">
