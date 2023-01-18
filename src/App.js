@@ -65,7 +65,7 @@ const App = () => {
         <Route path="/my-requests" element={<MyRequest />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/category/:name/*" element={< CategoriesLayout />} />
-        {/* <Route path="/search-posts" element={<BrowseRequests />} /> */}
+        <Route path="/search-posts/*" element={<BrowseRequestLayout />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
