@@ -116,7 +116,7 @@ const Menu = (props) => {
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse navigation" id="navbarCollapse">
-                                <ul className="navbar-nav me-auto mb-2 mb-md-0">
+                                <ul className="navbar-nav me-auto mb-2 mb-md-0 main-menu-ul">
                                     <li className="nav-item">
                                         <NavLink className="nav-link postATaskbtn" aria-current="page" to="/post-a-task">Post a task</NavLink>
                                     </li>
@@ -225,9 +225,9 @@ const Menu = (props) => {
                                     <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
                                 </ul>
                                 <div className="d-flex">
-                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" onClick={handleSkillSeekerClick} />
+                                    <FormControlLabel className="skillSekkerProvider-text-size" sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" onClick={handleSkillSeekerClick} />
                                     <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" checked={localStorage.getItem('isLoginType') === 'skillprovider' ? true : localStorage.getItem('isLoginType') === 'skillseeker' && false} onChange={handleSkillSeekerProviderStatus} />} />
-                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillProvider" onClick={handleSkillProviderClick} />
+                                    <FormControlLabel className="skillSekkerProvider-text-size" sx={{ color: '#fff' }} control={<></>} label="SkillProvider" onClick={handleSkillProviderClick} />
                                     <div className="ms-2 d-flex justify-content-center align-items-center">
                                         <div className="d-flex user-detail-main-area">
                                             <div className="user-img-area Notification-dropdown">
@@ -391,7 +391,7 @@ const Menu = (props) => {
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse navigation" id="navbarCollapse">
-                                <ul className="navbar-nav me-auto mb-2 mb-md-0">
+                                <ul className="navbar-nav me-auto mb-2 mb-md-0 main-menu-ul">
                                     <li className="nav-item">
                                         <NavLink className="nav-link postATaskbtn" aria-current="page" to="/post-a-task">Post a task</NavLink>
                                     </li>
@@ -500,9 +500,9 @@ const Menu = (props) => {
                                     <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
                                 </ul>
                                 <div className="d-flex">
-                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" onClick={handleSkillSeekerClick} />
+                                    <FormControlLabel className="skillSekkerProvider-text-size" sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" onClick={handleSkillSeekerClick} />
                                     <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" checked={localStorage.getItem('isLoginType') === 'skillprovider' ? true : localStorage.getItem('isLoginType') === 'skillseeker' && false} onChange={handleSkillSeekerProviderStatus} />} />
-                                    <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillProvider" onClick={handleSkillProviderClick} />
+                                    <FormControlLabel className="skillSekkerProvider-text-size" sx={{ color: '#fff' }} control={<></>} label="SkillProvider" onClick={handleSkillProviderClick} />
                                     <div className="ms-2 d-flex justify-content-center align-items-center">
                                         <div className="d-flex user-detail-main-area">
                                             <div className="user-img-area Notification-dropdown">
@@ -686,7 +686,7 @@ const Menu = (props) => {
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse navigation" id="navbarCollapse">
-                                <ul className="navbar-nav me-auto mb-2 mb-md-0">
+                                <ul className="navbar-nav me-auto mb-2 mb-md-0 main-menu-ul">
                                     <li className="nav-item">
                                         <NavLink className="nav-link postATaskbtn" aria-current="page" to="/post-a-task">Post a task</NavLink>
                                     </li>

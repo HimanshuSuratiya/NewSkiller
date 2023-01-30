@@ -215,3 +215,89 @@
 }
 
 /* How its Work Responsive */
+
+
+/* 1024 Desktop Responsive */
+@media only screen and (max-width: 1024px) {
+
+    /* Menu */
+    a.navbar-brand {
+        margin-right: 10px;
+    }
+
+    .navigation .navbar-nav .nav-item .nav-link {
+        font-size: 14px;
+    }
+
+    .navigation .navbar-nav .nav-item .nav-link.postATaskbtn {
+        margin-top: 0px;
+    }
+
+    .navigation .navbar-nav .nav-item .nav-link {
+        font-size: 14px;
+    }
+
+    .main-menu-ul {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-brand img {
+        height: 25px;
+    }
+
+    .navigation .navbar-nav .nav-item .nav-link.postATaskbtn {
+        padding: 3px 15px;
+    }
+
+    .navigation .navbar-nav .nav-item {
+        padding: 0 2px;
+    }
+
+    .skillSekkerProvider-text-size span {
+        font-size: 14px;
+    }
+
+    /* Menu */
+
+    /* Landing Page */
+    .aon-banner-outer .aon-banner-text .text-top-line {
+        font-size: 40px;
+    }
+
+    .aon-banner-text .text-bot-line {
+        font-size: 40px;
+        padding-bottom: 10px;
+    }
+
+    .bannerBtn a {
+        font-size: 14px;
+    }
+
+    .member-info h3 {
+        font-size: 14px;
+    }
+
+    .left-arrow-category .swiper-button-prev {
+        top: 80% !important;
+        left: 44%;
+    }
+
+    .left-arrow-category .swiper-button-next {
+        top: 80% !important;
+        right: 44%;
+    }
+
+    .left-right-arrow-vendor .swiper-button-prev {
+        left: 44%;
+    }
+
+    .left-right-arrow-vendor .swiper-button-next {
+        right: 44%;
+    }
+
+    /* Landing Page */
+}
+
+
+/* 1024 Desktop Responsive */
