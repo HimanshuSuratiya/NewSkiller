@@ -216,9 +216,28 @@
 
 /* How its Work Responsive */
 
+/* Wallet Screen Responsive */
+@media only screen and (max-width: 1200px) {
+    .transaction-para {
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .my-wallet-heading {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .main-wallet-div-area {
+        margin-top: 25px;
+    }
+}
+
+/* Wallet Screen Responsive */
 
 /* 1024 Desktop Responsive */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1220px) {
 
     /* Menu */
     a.navbar-brand {

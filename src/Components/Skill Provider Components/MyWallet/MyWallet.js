@@ -58,7 +58,7 @@ const MyWallet = () => {
                 <Banner text="My wallet" />
                 <div className="container p-2 mt-4">
                     <div className="row m-0">
-                        <div className='col-lg-5'>
+                        <div className='col-lg-6'>
                             <div className='main-transaction-div-area'>
                                 <div className='d-flex my-wallet-section justify-content-between align-items-center'>
                                     <div className='d-flex align-items-center py-2'>
@@ -107,7 +107,7 @@ const MyWallet = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-lg-7'>
+                        <div className='col-lg-6'>
                             <div className='main-wallet-div-area'>
                                 <div className='d-flex align-items-center my-wallet-section py-2'>
                                     <span className='ps-2'> <LibraryAddCheckIcon /> </span>
@@ -127,8 +127,8 @@ const MyWallet = () => {
                                     </FormControl>
                                     <button className="withdrawal-btn">Withdrawal</button>
                                 </div>
-                                <div className='mt-5 mb-5 px-4 d-flex align-items-center'>
-                                    <FormControl sx={{ width: 420 }}>
+                                <div className='mt-5 mb-5 px-4 d-flex align-items-center justify-content-between'>
+                                    <FormControl sx={{ width: '40%' }}>
                                         <InputLabel htmlFor="outlined-adornment-amount">Add Wallet Balance</InputLabel>
                                         <OutlinedInput
                                             type='number'

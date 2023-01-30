@@ -370,7 +370,10 @@ const MyTasksDetail = ({ setCardDetail, Map, cardData }) => {
                             <p className='p-0 m-0 py-1 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '36px' }}>$50</p>
                             {cardData.status === 'Pending' &&
                                 <div className="d-flex justify-content-center py-2">
-                                    <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClickOpenMakeanofferModal}>Make an offer</button>
+                                    {
+                                        localStorage.getItem('isLoginType') === 'skillprovider' &&
+                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClickOpenMakeanofferModal}>Make an offer</button>
+                                    }
                                 </div>
                             }
                         </div>

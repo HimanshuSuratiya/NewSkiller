@@ -448,7 +448,7 @@ const BrowseRequestDetail = ({ setCardDetail, Map, cardData }) => {
                                                 <div className='my-2'>
                                                     <p className='p-0 m-0 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '36px' }}>{item.budget}</p>
                                                     <div>
-                                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-4' >Accept</button>
+                                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-4' onClick={() => { localStorage.getItem('isLoginType') != 'guest' ? alert('Some work pending on this click') : alert('Please Login First') }} >Accept</button>
                                                         <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={() => { localStorage.getItem('isLoginType') != 'guest' ? handleClickOpen() : alert('Please Login First') }}>Reject</button>
                                                     </div>
                                                 </div>
