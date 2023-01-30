@@ -226,7 +226,7 @@ const Menu = (props) => {
                                 </ul>
                                 <div className="d-flex">
                                     <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" onClick={handleSkillSeekerClick} />
-                                    <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" checked={state.isSekerProvider} onChange={handleSkillSeekerProviderStatus} />} />
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" checked={localStorage.getItem('isLoginType') === 'skillprovider' ? true : localStorage.getItem('isLoginType') === 'skillseeker' && false} onChange={handleSkillSeekerProviderStatus} />} />
                                     <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillProvider" onClick={handleSkillProviderClick} />
                                     <div className="ms-2 d-flex justify-content-center align-items-center">
                                         <div className="d-flex user-detail-main-area">
@@ -501,7 +501,7 @@ const Menu = (props) => {
                                 </ul>
                                 <div className="d-flex">
                                     <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" onClick={handleSkillSeekerClick} />
-                                    <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" checked={state.isSekerProvider} onChange={handleSkillSeekerProviderStatus} />} />
+                                    <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" checked={localStorage.getItem('isLoginType') === 'skillprovider' ? true : localStorage.getItem('isLoginType') === 'skillseeker' && false} onChange={handleSkillSeekerProviderStatus} />} />
                                     <FormControlLabel sx={{ color: '#fff' }} control={<></>} label="SkillProvider" onClick={handleSkillProviderClick} />
                                     <div className="ms-2 d-flex justify-content-center align-items-center">
                                         <div className="d-flex user-detail-main-area">
