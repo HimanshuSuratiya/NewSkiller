@@ -35,7 +35,7 @@ const PastTasks = () => {
                                     <div>
                                         <DesktopDatePicker
                                             label="Start Date"
-                                            className='past-task-datepicker me-2'
+                                            className='past-task-datepicker me-2 col-md-5'
                                             inputFormat="MM/DD/YYYY"
                                             value={value}
                                             onChange={handleChange}
@@ -43,7 +43,7 @@ const PastTasks = () => {
                                         />
                                         <DesktopDatePicker
                                             label="End Date"
-                                            className='past-task-datepicker ms-2'
+                                            className='past-task-datepicker ms-2 col-md-5'
                                             inputFormat="MM/DD/YYYY"
                                             value={value}
                                             onChange={handleChange}
