@@ -228,9 +228,9 @@ const Menu = (props) => {
                                     <FormControlLabel className="skillSekkerProvider-text-size" sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" onClick={handleSkillSeekerClick} />
                                     <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" checked={localStorage.getItem('isLoginType') === 'skillprovider' ? true : localStorage.getItem('isLoginType') === 'skillseeker' && false} onChange={handleSkillSeekerProviderStatus} />} />
                                     <FormControlLabel className="skillSekkerProvider-text-size" sx={{ color: '#fff' }} control={<></>} label="SkillProvider" onClick={handleSkillProviderClick} />
-                                    <div className="ms-2 d-flex justify-content-center align-items-center">
+                                    <div className="ms-2 d-flex justify-content-center align-items-center Notification-dropdown">
                                         <div className="d-flex user-detail-main-area">
-                                            <div className="user-img-area Notification-dropdown">
+                                            <div className="user-img-area">
                                                 <div className="font-awesome-size">
                                                     <Badge badgeContent={4} color="error" className="notification-badge">
                                                         <NotificationsActiveIcon style={{ fontSize: '28px', color: '#fff', cursor: 'pointer' }} />
@@ -503,9 +503,9 @@ const Menu = (props) => {
                                     <FormControlLabel className="skillSekkerProvider-text-size" sx={{ color: '#fff' }} control={<></>} label="SkillSeeker" onClick={handleSkillSeekerClick} />
                                     <FormControlLabel sx={{ color: '#fff' }} control={<Switch color="default" checked={localStorage.getItem('isLoginType') === 'skillprovider' ? true : localStorage.getItem('isLoginType') === 'skillseeker' && false} onChange={handleSkillSeekerProviderStatus} />} />
                                     <FormControlLabel className="skillSekkerProvider-text-size" sx={{ color: '#fff' }} control={<></>} label="SkillProvider" onClick={handleSkillProviderClick} />
-                                    <div className="ms-2 d-flex justify-content-center align-items-center">
+                                    <div className="ms-2 d-flex justify-content-center align-items-center Notification-dropdown">
                                         <div className="d-flex user-detail-main-area">
-                                            <div className="user-img-area Notification-dropdown">
+                                            <div className="user-img-area">
                                                 <div className="font-awesome-size">
                                                     <Badge badgeContent={4} color="error" className="notification-badge">
                                                         <NotificationsActiveIcon style={{ fontSize: '28px', color: '#fff', cursor: 'pointer' }} />
