@@ -95,10 +95,21 @@
 
 
 /* Browse Rquest and my task and search post Responsive */
-@media only screen and (max-width: 1265px) {
-    .my-task-single-line-card {
-        display: flex;
-        justify-content: space-evenly !important;
+@media only screen and (max-width: 1240px) {
+    .my-task-single-card-width {
+        width: 370px;
+    }
+}
+
+@media only screen and (max-width: 1226px) {
+    .my-task-single-card-width {
+        width: 360px;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .my-task-single-card-width {
+        width: 373px;
     }
 }
 

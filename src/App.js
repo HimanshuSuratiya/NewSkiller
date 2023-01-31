@@ -58,14 +58,14 @@ const App = () => {
         <Route path="/profile" element={<MyProfile />} />
         <Route path="/wallet/*" element={<WalletLayout />} />
         <Route path="/notification" element={<Notification />} />
-        <Route path="/browse-requests/*" element={<BrowseRequestLayout />} />
+        <Route path="/browse-requests/*" element={<BrowseRequestLayout heading={'Browse-Request'} />} />
         <Route path="/my-tasks/*" element={<MyTasksLayout />} />
         <Route path="/past-tasks" element={<PastTasks />} />
         <Route path="/my-proposals/*" element={<MyProposalLayout />} />
         <Route path="/my-requests" element={<MyRequest />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/category/:name/*" element={< CategoriesLayout />} />
-        <Route path="/search-posts/*" element={<BrowseRequestLayout />} />
+        <Route path="/search-posts/*" element={<BrowseRequestLayout heading={'Search-Posts'} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

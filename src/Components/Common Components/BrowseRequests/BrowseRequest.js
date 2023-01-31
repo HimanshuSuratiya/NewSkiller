@@ -78,7 +78,7 @@ const defaultState = {
     cardData: {},
 }
 
-const BrowseRequest = () => {
+const BrowseRequest = ({ heading }) => {
     const [state, setState] = useState(defaultState);
     const [cardDetail, setCardDetail] = useState(false);
     const [toggleShow, setToggleShow] = useState({
@@ -324,7 +324,7 @@ const BrowseRequest = () => {
                         </div>
                         <div className='col-lg-4'>
                             <div>
-                                <h3>Browse-Requests</h3>
+                                <h3>{heading}</h3>
                             </div>
                         </div>
                         <div className='col-lg-4 pe-0 text-right'>

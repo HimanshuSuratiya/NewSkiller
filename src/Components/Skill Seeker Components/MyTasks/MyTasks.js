@@ -375,7 +375,7 @@ const MyTasks = () => {
                 <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='container px-5'>
                     <div className='row text-center'>
-                        <div className='col-lg-4 ps-0 text-start'>
+                        <div className='col-lg-5 ps-0 text-start'>
                             <div>
                                 <React.Fragment key={'left'}>
                                     <FilterListIcon onClick={toggleDrawer('left', true)} style={{ cursor: 'pointer' }} />
@@ -390,12 +390,12 @@ const MyTasks = () => {
                                 </React.Fragment>
                             </div>
                         </div>
-                        <div className='col-lg-4'>
+                        <div className='col-lg-2'>
                             <div>
                                 <h3>My Tasks</h3>
                             </div>
                         </div>
-                        <div className='col-lg-4 pe-0 text-right'>
+                        <div className='col-lg-5 pe-0 text-right'>
                             <div>
                                 <TextField
                                     variant="outlined"
@@ -433,169 +433,177 @@ const MyTasks = () => {
                                         </Tabs>
                                     </Box>
                                     <TabPanel value={value} index={0} className="my-task-tab-panel">
-                                        <div className='left-main-Div my-task-single-line-card'>
-                                            {TaskData.map((item, index) => {
-                                                if (item.status === 'Pending') {
-                                                    return (
-                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>
-                                                            <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                                <span className='px-1 dollerPrice'>${item.price}</span>
-                                                            </div>
-                                                            <div className='px-2 my-1 d-flex justify-content-between'>
-                                                                <div className='d-flex flex-column'>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                        <div className='row'>
+                                            <div className='left-main-Div my-task-single-line-card'>
+                                                {TaskData.map((item, index) => {
+                                                    if (item.status === 'Pending') {
+                                                        return (
+                                                            <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>
+                                                                <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                                    <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                                    <span className='px-1 dollerPrice'>${item.price}</span>
+                                                                </div>
+                                                                <div className='px-2 my-1 d-flex justify-content-between'>
+                                                                    <div className='d-flex flex-column'>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                        </div>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                        </div>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                        </div>
                                                                     </div>
                                                                     <div className='d-flex align-items-center'>
-                                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
-                                                                    </div>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                        <Avatar src="/broken-image.jpg" />
                                                                     </div>
                                                                 </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <Avatar src="/broken-image.jpg" />
-                                                                </div>
-                                                            </div>
-                                                            <Divider style={{ backgroundColor: 'gray' }} />
-                                                            <div className='px-2'>
-                                                                <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                }
-                                            })}
-                                        </div>
-                                    </TabPanel>
-                                    <TabPanel value={value} index={1} className="my-task-tab-panel">
-                                        <div className='left-main-Div my-task-single-line-card'>
-                                            {TaskData.map((item, index) => {
-                                                if (item.status === 'In Progress') {
-                                                    return (
-                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width'>
-                                                            <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                                <h4 className='px-1 m-0' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>{item.taskName}</h4>
-                                                                <span className='px-1 dollerPrice'>${item.price}</span>
-                                                            </div>
-                                                            <div className='px-2 my-1 d-flex justify-content-between'>
-                                                                <div className='d-flex flex-column'>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
-                                                                    </div>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
-                                                                    </div>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <Avatar src="/broken-image.jpg" />
-                                                                </div>
-                                                            </div>
-                                                            <Divider style={{ backgroundColor: 'gray' }} />
-                                                            <div className='pt-2 d-flex align-items-center justify-content-between'>
+                                                                <Divider style={{ backgroundColor: 'gray' }} />
                                                                 <div className='px-2'>
                                                                     <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
                                                                 </div>
-                                                                <NavLink to="user-profile">
-                                                                    <div className='px-2 d-flex align-items-center justify-content-center'>
-                                                                        <Avatar
-                                                                            alt="Remy Sharp"
-                                                                            src={Images.one}
-                                                                            sx={{ width: 24, height: 24 }}
-                                                                        />
-                                                                        <span className='ps-2' style={{ fontSize: '12px' }}>Dein Markash</span>
-                                                                    </div>
-                                                                </NavLink>
                                                             </div>
-                                                        </div>
-                                                    )
-                                                }
-                                            })}
+                                                        )
+                                                    }
+                                                })}
+                                            </div>
+                                        </div>
+                                    </TabPanel>
+                                    <TabPanel value={value} index={1} className="my-task-tab-panel">
+                                        <div className='row'>
+                                            <div className='left-main-Div my-task-single-line-card'>
+                                                {TaskData.map((item, index) => {
+                                                    if (item.status === 'In Progress') {
+                                                        return (
+                                                            <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width'>
+                                                                <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                                    <h4 className='px-1 m-0' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>{item.taskName}</h4>
+                                                                    <span className='px-1 dollerPrice'>${item.price}</span>
+                                                                </div>
+                                                                <div className='px-2 my-1 d-flex justify-content-between'>
+                                                                    <div className='d-flex flex-column'>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                        </div>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                        </div>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <Avatar src="/broken-image.jpg" />
+                                                                    </div>
+                                                                </div>
+                                                                <Divider style={{ backgroundColor: 'gray' }} />
+                                                                <div className='pt-2 d-flex align-items-center justify-content-between'>
+                                                                    <div className='px-2'>
+                                                                        <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                                    </div>
+                                                                    <NavLink to="user-profile">
+                                                                        <div className='px-2 d-flex align-items-center justify-content-center'>
+                                                                            <Avatar
+                                                                                alt="Remy Sharp"
+                                                                                src={Images.one}
+                                                                                sx={{ width: 24, height: 24 }}
+                                                                            />
+                                                                            <span className='ps-2' style={{ fontSize: '12px' }}>Dein Markash</span>
+                                                                        </div>
+                                                                    </NavLink>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    }
+                                                })}
+                                            </div>
                                         </div>
                                     </TabPanel>
                                     <TabPanel value={value} index={2} className="my-task-tab-panel">
-                                        <div className='left-main-Div my-task-single-line-card'>
-                                            {TaskData.map((item, index) => {
-                                                if (item.status === 'Cancel') {
-                                                    return (
-                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>
-                                                            <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                                <span className='px-1 dollerPrice'>${item.price}</span>
-                                                            </div>
-                                                            <div className='px-2 my-1 d-flex justify-content-between'>
-                                                                <div className='d-flex flex-column'>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                        <div className='row'>
+                                            <div className='left-main-Div my-task-single-line-card'>
+                                                {TaskData.map((item, index) => {
+                                                    if (item.status === 'Cancel') {
+                                                        return (
+                                                            <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>
+                                                                <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                                    <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                                    <span className='px-1 dollerPrice'>${item.price}</span>
+                                                                </div>
+                                                                <div className='px-2 my-1 d-flex justify-content-between'>
+                                                                    <div className='d-flex flex-column'>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                        </div>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                        </div>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                        </div>
                                                                     </div>
                                                                     <div className='d-flex align-items-center'>
-                                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
-                                                                    </div>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                        <Avatar src="/broken-image.jpg" />
                                                                     </div>
                                                                 </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <Avatar src="/broken-image.jpg" />
+                                                                <Divider style={{ backgroundColor: 'gray' }} />
+                                                                <div className='px-2 d-flex align-items-center justify-content-between'>
+                                                                    <div>
+                                                                        <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button className='my-task-re-post-btn' onClick={handleClickOpen}>
+                                                                            Repost
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <Divider style={{ backgroundColor: 'gray' }} />
-                                                            <div className='px-2 d-flex align-items-center justify-content-between'>
-                                                                <div>
-                                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
-                                                                </div>
-                                                                <div>
-                                                                    <button className='my-task-re-post-btn' onClick={handleClickOpen}>
-                                                                        Repost
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                }
-                                            })}
+                                                        )
+                                                    }
+                                                })}
+                                            </div>
                                         </div>
                                     </TabPanel>
                                     <TabPanel value={value} index={3} className="my-task-tab-panel">
-                                        <div className='left-main-Div my-task-single-line-card'>
-                                            {TaskData.map((item, index) => {
-                                                if (item.status === 'Completed') {
-                                                    return (
-                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>
-                                                            <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                                <span className='px-1 dollerPrice'>${item.price}</span>
-                                                            </div>
-                                                            <div className='px-2 my-1 d-flex justify-content-between'>
-                                                                <div className='d-flex flex-column'>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                        <div className='row'>
+                                            <div className='left-main-Div my-task-single-line-card'>
+                                                {TaskData.map((item, index) => {
+                                                    if (item.status === 'Completed') {
+                                                        return (
+                                                            <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>
+                                                                <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                                    <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                                    <span className='px-1 dollerPrice'>${item.price}</span>
+                                                                </div>
+                                                                <div className='px-2 my-1 d-flex justify-content-between'>
+                                                                    <div className='d-flex flex-column'>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                        </div>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                        </div>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                        </div>
+                                                                        <div className='d-flex align-items-center'>
+                                                                            <PaidIcon className='icon' /> <span className='px-2 fontServerandDate' style={{ fontWeight: '600' }}>Payment: {item.payment} </span>
+                                                                        </div>
                                                                     </div>
                                                                     <div className='d-flex align-items-center'>
-                                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
-                                                                    </div>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
-                                                                    </div>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <PaidIcon className='icon' /> <span className='px-2 fontServerandDate' style={{ fontWeight: '600' }}>Payment: {item.payment} </span>
+                                                                        <Avatar src="/broken-image.jpg" />
                                                                     </div>
                                                                 </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <Avatar src="/broken-image.jpg" />
+                                                                <Divider style={{ backgroundColor: 'gray' }} />
+                                                                <div className='px-2'>
+                                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
                                                                 </div>
                                                             </div>
-                                                            <Divider style={{ backgroundColor: 'gray' }} />
-                                                            <div className='px-2'>
-                                                                <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                }
-                                            })}
+                                                        )
+                                                    }
+                                                })}
+                                            </div>
                                         </div>
                                     </TabPanel>
                                 </Box>
